@@ -10,12 +10,6 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
-.idea
-[Ii]dea
-/[Ii]dea
-/.idea/
-/WebGL Builds/
-
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
 
