@@ -622,15 +622,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 303189118}
     m_Modifications:
+    - target: {fileID: 892975172935007544, guid: 253a75200b946624da49a0a408d3eb4b,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.35459745
+      objectReference: {fileID: 0}
+    - target: {fileID: 892975172935007544, guid: 253a75200b946624da49a0a408d3eb4b,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 892975172935007544, guid: 253a75200b946624da49a0a408d3eb4b,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.33708617
+      objectReference: {fileID: 0}
     - target: {fileID: 3091947836109403469, guid: 253a75200b946624da49a0a408d3eb4b,
         type: 3}
       propertyPath: m_Name
       value: Generator
-      objectReference: {fileID: 0}
-    - target: {fileID: 3091947836109403469, guid: 253a75200b946624da49a0a408d3eb4b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5306352440511314650, guid: 253a75200b946624da49a0a408d3eb4b,
         type: 3}
@@ -737,6 +747,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5249522090887031279, guid: 253a75200b946624da49a0a408d3eb4b, type: 3}
+    - target: {fileID: 7243637934749275605, guid: 253a75200b946624da49a0a408d3eb4b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Buy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 253a75200b946624da49a0a408d3eb4b, type: 3}

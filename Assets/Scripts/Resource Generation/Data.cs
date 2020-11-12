@@ -8,7 +8,7 @@ namespace Resource_Generation {
         public int generatedAmount;
         [SerializeField] private float generatedAmountMultiplier = 3f;
         [SerializeField] private string generatorName;
-        [SerializeField] private int price;
+        public int price;
         [SerializeField] private float priceMultiplier;
         public Resource resource;
         [SerializeField] private int increaseSpeedThreshold;

@@ -15,7 +15,7 @@ namespace Resource_Generation
 
         public int NumberOwned
         {
-            get => PlayerPrefs.GetInt(OwnedKey, 0);
+            get => PlayerPrefs.GetInt(OwnedKey, 1);
             set => PlayerPrefs.SetInt(OwnedKey, value);
         }
         public int Level
@@ -23,8 +23,18 @@ namespace Resource_Generation
             get => PlayerPrefs.GetInt(LevelKey, 0);
             set => PlayerPrefs.SetInt(LevelKey, value);
         }
+
+        public void Buy()
+        {
+            if(this.data.resource.CurrentAmount < this.data.price)
+                return;
+            this.data.resource.CurrentAmount -= this.data.price;
+
+            this.NumberOwned++;
+        }
+
         void Generate() {
-            data.resource.CurrentAmount += data.generatedAmount;
+            data.resource.CurrentAmount += data.generatedAmount * this.NumberOwned;
             this.timer = 0f;
             this.isProducing = false;
         }
