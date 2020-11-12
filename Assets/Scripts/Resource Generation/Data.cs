@@ -5,12 +5,12 @@ namespace Resource_Generation {
     public class Data : ScriptableObject {
         [SerializeField] private float productionTime;
         [SerializeField] private float productionTimeMultiplier;
-        [SerializeField] private float generatedAmount;
+        public int generatedAmount;
         [SerializeField] private float generatedAmountMultiplier = 3f;
         [SerializeField] private string generatorName;
         [SerializeField] private int price;
         [SerializeField] private float priceMultiplier;
-        [SerializeField] private Resource resource;
+        public Resource resource;
         [SerializeField] private int increaseSpeedThreshold;
         
         public float ProductionTime {

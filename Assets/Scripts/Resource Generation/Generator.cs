@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Resource_Generation
 {
     public class Generator : MonoBehaviour {
         
-        [SerializeField] private int generatedAmount = 1;
-        [SerializeField] private Resource resource;
-        private string OwnedKey => $"{this.name}_owned";
-        private string LevelKey => $"{this.name}_level";
+        [SerializeField] private Data data;
+        private string OwnedKey => $"{data.name}_owned";
+        private string LevelKey => $"{data.name}_level";
+
         public int NumberOwned
         {
             get => PlayerPrefs.GetInt(OwnedKey, 0);
@@ -19,9 +20,8 @@ namespace Resource_Generation
             get => PlayerPrefs.GetInt(LevelKey, 0);
             set => PlayerPrefs.SetInt(LevelKey, value);
         }
-        public void Generate()
-        {
-            resource.CurrentAmount += generatedAmount;
+        public void Generate() {
+            data.resource.CurrentAmount += data.generatedAmount;
         }
     }
 }
