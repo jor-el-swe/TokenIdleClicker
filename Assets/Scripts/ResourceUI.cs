@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ResourceUI : MonoBehaviour
-{
+public class ResourceUI : MonoBehaviour {
     [SerializeField] private Text resourceText;
     [SerializeField] private Resource resource;
 
-    private void Update()
-    {
+    private void Update() {
         resourceText.text = resource.CurrentAmount.ToString($"{resource.name}: 0");
     }
 }

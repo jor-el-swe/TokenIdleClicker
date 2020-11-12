@@ -13,45 +13,43 @@ namespace Resource_Generation
         private float timer;
         private bool isProducing;
 
-        public int NumberOwned
-        {
+        public int NumberOwned {
             get => PlayerPrefs.GetInt(OwnedKey, 1);
             set => PlayerPrefs.SetInt(OwnedKey, value);
         }
-        public int Level
-        {
+        
+        public int Level {
             get => PlayerPrefs.GetInt(LevelKey, 0);
             set => PlayerPrefs.SetInt(LevelKey, value);
         }
 
-        public void Buy()
-        {
-            if(this.data.resource.CurrentAmount < this.data.price)
+        public void Buy() {
+            if(data.resource.CurrentAmount < data.price)
                 return;
-            this.data.resource.CurrentAmount -= this.data.price;
+            data.resource.CurrentAmount -= data.price;
 
-            this.NumberOwned++;
-        }
-
-        void Generate() {
-            data.resource.CurrentAmount += data.generatedAmount * this.NumberOwned;
-            this.timer = 0f;
-            this.isProducing = false;
+            NumberOwned++;
         }
 
         public void StartProduction() {
-            this.isProducing = true;
+            isProducing = true;
         }
 
         private void Update() {
-            if(!this.isProducing) 
+            if(!isProducing) 
                 return;
             
-            this.timer += Time.deltaTime;
+            timer += Time.deltaTime;
 
-            if (this.timer < data.ProductionTime)
+            if (timer < data.ProductionTime)
                 return;
             Generate();
+        }
+        
+        void Generate() {
+            data.resource.CurrentAmount += data.generatedAmount * NumberOwned;
+            timer = 0f;
+            isProducing = false;
         }
     }
 }
