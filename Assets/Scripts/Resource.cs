@@ -1,18 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Resource : MonoBehaviour
+﻿using UnityEngine;
+[CreateAssetMenu]
+public class Resource : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+     public int CurrentAmount
+     {
+          get => PlayerPrefs.GetInt(this.name, 0);
+          set => PlayerPrefs.SetInt(this.name, value);
+     }
+     
 }
