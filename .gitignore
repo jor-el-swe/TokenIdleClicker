@@ -75,3 +75,4 @@ crashlytics-build.properties
 .DS_Store
 ProjectSettings/VersionControlSettings.asset
 ProjectSettings/VersionControlSettings.asset
+.vscode/settings.json
