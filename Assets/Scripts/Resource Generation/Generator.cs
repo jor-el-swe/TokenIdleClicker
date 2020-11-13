@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,7 @@ namespace Resource_Generation
         [SerializeField] private Text upgradeText;
         [SerializeField] private Text numberOwnedText;
         [SerializeField] private Text levelText;
+        [SerializeField] private Text productionTimeText;
         [SerializeField] private int maxLevel;
         
         private string OwnedKey => $"{data.name}_owned";
@@ -61,6 +63,7 @@ namespace Resource_Generation
         private void UpdateOwnedText()
         {
             numberOwnedText.text = NumberOwned.ToString();
+            productionTimeText.text = data.GetActualProductionTime(NumberOwned).ToString("0.000");
         }
 
         private void UpdateLevelText()
@@ -80,7 +83,7 @@ namespace Resource_Generation
             
             timer += Time.deltaTime;
 
-            if (timer < data.ProductionTime)
+            if (timer < data.GetActualProductionTime(NumberOwned))
                 return;
             Generate();
         }

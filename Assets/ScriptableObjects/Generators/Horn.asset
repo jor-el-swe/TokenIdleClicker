@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a117655abebe464a93c5599510d07b6, type: 3}
   m_Name: Horn
   m_EditorClassIdentifier: 
-  productionTime: 0.1
-  productionTimeMultiplier: 0
+  productionTime: 10
+  productionTimeMultiplier: 0.5
   generatedAmountMultiplier: 3
   generatorName: 
   priceMultiplier: 1.1
-  increaseSpeedThreshold: 0
+  increaseSpeedThreshold: 50
   levelUpgradePrice: 10
   levelUpgradeMultiplier: 2
   price: 20
-  generatedAmount: 5
+  generatedAmount: 50000
   resource: {fileID: 11400000, guid: 95b6a74f40d2a4fbcb4e75fe637b530f, type: 2}

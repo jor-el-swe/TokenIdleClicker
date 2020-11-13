@@ -33,5 +33,12 @@ namespace Resource_Generation {
         {
             return Mathf.CeilToInt(levelUpgradePrice * Mathf.Pow(levelUpgradeMultiplier, level));
         }
+
+        public float GetActualProductionTime(int numberOwned)
+        {
+            var increments = numberOwned / increaseSpeedThreshold;
+            var actualProductionTime = productionTime * Mathf.Pow(productionTimeMultiplier, increments);
+            return actualProductionTime;
+        }
     }
 }

@@ -403,18 +403,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &822423685 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6686886230328625554, guid: 253a75200b946624da49a0a408d3eb4b,
-    type: 3}
-  m_PrefabInstance: {fileID: 5249522091484619284}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &825062803 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5306352440511314650, guid: 253a75200b946624da49a0a408d3eb4b,
@@ -535,7 +523,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 74.69998, y: 0.0011291504}
+  m_AnchoredPosition: {x: 74.69995, y: 0.001159668}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2026428903
@@ -642,40 +630,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 948568145296120531, guid: 253a75200b946624da49a0a408d3eb4b,
-        type: 3}
-      propertyPath: upgradeText
-      value: 
-      objectReference: {fileID: 822423685}
     - target: {fileID: 3091947836109403469, guid: 253a75200b946624da49a0a408d3eb4b,
         type: 3}
       propertyPath: m_Name
       value: Generator
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891989961157989978, guid: 253a75200b946624da49a0a408d3eb4b,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.036222856
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891989961157989978, guid: 253a75200b946624da49a0a408d3eb4b,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.5432093
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891989961157989978, guid: 253a75200b946624da49a0a408d3eb4b,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.6981132
-      objectReference: {fileID: 0}
-    - target: {fileID: 4681572472237814638, guid: 253a75200b946624da49a0a408d3eb4b,
-        type: 3}
-      propertyPath: m_Text
-      value: "Buy \n10 Tokens"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5249522090887031276, guid: 253a75200b946624da49a0a408d3eb4b,
-        type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5306352440511314650, guid: 253a75200b946624da49a0a408d3eb4b,
         type: 3}
@@ -780,11 +738,6 @@ PrefabInstance:
     - target: {fileID: 5306352440511314650, guid: 253a75200b946624da49a0a408d3eb4b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7243637934749275605, guid: 253a75200b946624da49a0a408d3eb4b,
-        type: 3}
-      propertyPath: m_Navigation.m_Mode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
