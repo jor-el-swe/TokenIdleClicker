@@ -9,7 +9,7 @@ namespace Resource_Generation
         
         [SerializeField] private Data data;
         [SerializeField] private Text buyText;
-        
+        [SerializeField] private Text upgradeText;
         private string OwnedKey => $"{data.name}_owned";
         private string LevelKey => $"{data.name}_level";
 
@@ -27,11 +27,19 @@ namespace Resource_Generation
         }
 
         public void Buy() {
-            if(data.resource.CurrentAmount < data.GetActualPrice(NumberOwned))
+            if(data.Resource.CurrentAmount < data.GetActualPrice(NumberOwned))
                 return;
-            data.resource.CurrentAmount -= data.GetActualPrice(NumberOwned);
+            data.Resource.CurrentAmount -= data.GetActualPrice(NumberOwned);
             NumberOwned++;
             UpdateBuyText();
+        }
+
+        public void Upgrade()
+        {   if(!(Level<3) || data.Resource.CurrentAmount < data.GetActualUpgradePrice(Level))
+                return;
+            data.Resource.CurrentAmount -= data.GetActualUpgradePrice(Level);   
+            Level++;
+            UpdateLevelText();
         }
 
         public void StartProduction() {
@@ -41,6 +49,12 @@ namespace Resource_Generation
         private void Start()
         {
             UpdateBuyText();
+            UpdateLevelText();
+        }
+
+        private void UpdateLevelText()
+        {
+            upgradeText.text = $"Upgrade {data.GetActualUpgradePrice(Level)} Tokens ";
         }
 
         private void UpdateBuyText()
@@ -60,7 +74,7 @@ namespace Resource_Generation
         }
         
         void Generate() {
-            data.resource.CurrentAmount += data.generatedAmount * NumberOwned;
+            data.Resource.CurrentAmount += data.GetActualProductionAmount(Level)*NumberOwned;
             timer = 0f;
             isProducing = false;
         }
