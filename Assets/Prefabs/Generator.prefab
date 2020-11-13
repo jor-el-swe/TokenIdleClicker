@@ -621,6 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: e72fb0be66d45bc4f885a549030e0f72, type: 2}
+  buyText: {fileID: 4681572472237814638}
 --- !u!1 &5249522090887031266
 GameObject:
   m_ObjectHideFlags: 0

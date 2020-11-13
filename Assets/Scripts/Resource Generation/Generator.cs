@@ -1,12 +1,15 @@
 ﻿
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Resource_Generation
 {
     public class Generator : MonoBehaviour {
         
         [SerializeField] private Data data;
+        [SerializeField] private Text buyText;
+        
         private string OwnedKey => $"{data.name}_owned";
         private string LevelKey => $"{data.name}_level";
 
