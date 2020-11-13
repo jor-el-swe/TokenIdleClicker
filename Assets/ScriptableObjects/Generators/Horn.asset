@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a117655abebe464a93c5599510d07b6, type: 3}
   m_Name: Horn
   m_EditorClassIdentifier: 
-  productionTime: 10
+  productionTime: 1
   productionTimeMultiplier: 0.5
   generatedAmountMultiplier: 3
   generatorName: 
