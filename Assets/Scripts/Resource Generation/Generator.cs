@@ -27,17 +27,27 @@ namespace Resource_Generation
         }
 
         public void Buy() {
-            if(data.resource.CurrentAmount < data.price)
+            if(data.resource.CurrentAmount < data.GetActualPrice(NumberOwned))
                 return;
-            data.resource.CurrentAmount -= data.price;
-
+            data.resource.CurrentAmount -= data.GetActualPrice(NumberOwned);
             NumberOwned++;
+            UpdateBuyText();
         }
 
         public void StartProduction() {
             isProducing = true;
         }
 
+        private void Start()
+        {
+            UpdateBuyText();
+        }
+
+        private void UpdateBuyText()
+        {
+            buyText.text = $"Buy {data.GetActualPrice(NumberOwned)} Tokens ";
+        }
+        
         private void Update() {
             if(!isProducing) 
                 return;

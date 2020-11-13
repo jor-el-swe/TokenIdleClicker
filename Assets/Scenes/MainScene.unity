@@ -640,6 +640,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "Buy \n10 Tokens"
       objectReference: {fileID: 0}
+    - target: {fileID: 5249522090887031276, guid: 253a75200b946624da49a0a408d3eb4b,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5306352440511314650, guid: 253a75200b946624da49a0a408d3eb4b,
         type: 3}
       propertyPath: m_Pivot.x
@@ -743,6 +748,11 @@ PrefabInstance:
     - target: {fileID: 5306352440511314650, guid: 253a75200b946624da49a0a408d3eb4b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243637934749275605, guid: 253a75200b946624da49a0a408d3eb4b,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

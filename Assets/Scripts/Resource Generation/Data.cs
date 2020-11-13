@@ -15,6 +15,11 @@ namespace Resource_Generation {
         [SerializeField] private int increaseSpeedThreshold;
         
         public float ProductionTime => productionTime;
-        
+
+        public int GetActualPrice(int numberGenerators)
+        {
+            //return Mathf.Max(numberGenerators*price, Mathf.CeilToInt(price * Mathf.Pow(priceMultiplier, numberGenerators)));
+            return Mathf.CeilToInt(price * Mathf.Pow(priceMultiplier, numberGenerators-1));
+        }
     }
 }
