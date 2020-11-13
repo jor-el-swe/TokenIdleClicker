@@ -10,6 +10,10 @@ namespace Resource_Generation
         [SerializeField] private Data data;
         [SerializeField] private Text buyText;
         [SerializeField] private Text upgradeText;
+        [SerializeField] private Text numberOwnedText;
+        [SerializeField] private Text levelText;
+        [SerializeField] private int maxLevel;
+        
         private string OwnedKey => $"{data.name}_owned";
         private string LevelKey => $"{data.name}_level";
 
@@ -32,10 +36,11 @@ namespace Resource_Generation
             data.Resource.CurrentAmount -= data.GetActualPrice(NumberOwned);
             NumberOwned++;
             UpdateBuyText();
+            UpdateOwnedText();
         }
 
         public void Upgrade()
-        {   if(!(Level<3) || data.Resource.CurrentAmount < data.GetActualUpgradePrice(Level))
+        {   if(!(Level<maxLevel) || data.Resource.CurrentAmount < data.GetActualUpgradePrice(Level))
                 return;
             data.Resource.CurrentAmount -= data.GetActualUpgradePrice(Level);   
             Level++;
@@ -50,11 +55,18 @@ namespace Resource_Generation
         {
             UpdateBuyText();
             UpdateLevelText();
+            UpdateOwnedText();
+        }
+
+        private void UpdateOwnedText()
+        {
+            numberOwnedText.text = NumberOwned.ToString();
         }
 
         private void UpdateLevelText()
         {
             upgradeText.text = $"Upgrade {data.GetActualUpgradePrice(Level)} Tokens ";
+            levelText.text = Level.ToString();
         }
 
         private void UpdateBuyText()
