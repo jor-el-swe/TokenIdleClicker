@@ -764,6 +764,7 @@ MonoBehaviour:
   levelText: {fileID: 4971988030129065359}
   productionTimeText: {fileID: 1946919923113540386}
   maxLevel: 3
+  timeSinceQuit: {fileID: 11400000, guid: 82d3b336a7393c24a8a6fb3444bd8f14, type: 2}
 --- !u!1 &3842548641080180439
 GameObject:
   m_ObjectHideFlags: 0
