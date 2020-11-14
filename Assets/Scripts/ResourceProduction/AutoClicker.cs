@@ -11,7 +11,7 @@ namespace ResourceProduction {
         [SerializeField] private Text buyText;
 
         private void Start() {
-            buyText.text = $"{textPrefix}: {price} {priceResource}";
+            buyText.text = $"{textPrefix} {price} {priceResource.name}";
         }
 
         public void Buy() {
@@ -22,9 +22,10 @@ namespace ResourceProduction {
         }
 
         // Temporary method to remove auto clicker for testing purposes
+        // Delete this method when it's not needed anymore
         public void Remove() {
             data.AutoClicker = 0;
-            buyText.text = $"{textPrefix}: {price} {priceResource}";
+            buyText.text = $"{textPrefix} {price} {priceResource.name}";
         }
     }
 }
