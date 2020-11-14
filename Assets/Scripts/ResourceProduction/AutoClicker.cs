@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Resource_Generation {
+namespace ResourceProduction {
     public class AutoClicker : MonoBehaviour {
         [SerializeField] private Data data;
 

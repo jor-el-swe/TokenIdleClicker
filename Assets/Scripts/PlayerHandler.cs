@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerHandler : MonoBehaviour
 {
-    [SerializeField] private Resource resource;
+    [SerializeField] private Resource.Resource resource;
     [SerializeField] private int resourcesRequired;
     [SerializeField] private Text upgradeText;
     [SerializeField] private Text playerLevelText;

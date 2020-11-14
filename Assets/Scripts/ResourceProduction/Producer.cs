@@ -1,12 +1,9 @@
-﻿
-using System;
-using System.Globalization;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Resource_Generation
+namespace ResourceProduction
 {
-    public class Generator : MonoBehaviour {
+    public class Producer : MonoBehaviour {
         private float timer;
         private bool isProducing;
         
@@ -79,7 +76,7 @@ namespace Resource_Generation
 
         private void UpdateOwnedText() {
             numberOwnedText.text = NumberOwned.ToString();
-            productionTimeText.text = $"Tokens:\n{data.GetActualProductionTime(NumberOwned)}";
+            productionTimeText.text = data.GetActualProductionTime(NumberOwned).ToString("0.000");
         }
         
         private void UpdateLevelText() {

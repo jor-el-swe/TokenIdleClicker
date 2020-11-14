@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-namespace Resource_Generation {
+namespace ResourceProduction {
     [CreateAssetMenu]
     public class Data : ScriptableObject {
         
-        [SerializeField] private Resource resource;
+        [SerializeField] private Resource.Resource resource;
         [SerializeField] private float productionTime;
         [SerializeField] private float productionTimeMultiplier;
         [SerializeField] private float minimumProductionTime;
@@ -16,7 +16,7 @@ namespace Resource_Generation {
         [SerializeField] private int levelUpgradePrice;
         [SerializeField] private float levelUpgradeMultiplier;
 
-        public Resource Resource => resource;
+        public Resource.Resource Resource => resource;
         private string AutoClickerKey => $"{name}_autoClicker";
         public bool AutoClickerActive => AutoClicker == 1;
         public int AutoClicker {
