@@ -8,6 +8,7 @@ namespace ResourceProduction
         private bool isProducing;
         
         [SerializeField] private Data data;
+        [SerializeField] private GameObject produceButton;
         [SerializeField] private Text buyText;
         [SerializeField] private Text upgradeText;
         [SerializeField] private Text numberOwnedText;
@@ -17,7 +18,7 @@ namespace ResourceProduction
         
         private string OwnedKey => $"{data.name}_owned";
         private string LevelKey => $"{data.name}_level";
-
+        
         private int NumberOwned {
             get => PlayerPrefs.GetInt(OwnedKey, 1);
             set => PlayerPrefs.SetInt(OwnedKey, value);
@@ -56,17 +57,19 @@ namespace ResourceProduction
         }
         
         private void Update() {
+            // Disables produceButton when AutoClicker is active and vice versa
+            produceButton.SetActive(!data.AutoClickerActive); 
+            
             if (data.AutoClickerActive) {
-                //TODO: disable produce button
-                ProduceResource();
+                Produce();
                 return;
             }
             
             if (isProducing) 
-                ProduceResource();
+                Produce();
         }
 
-        private void ProduceResource() {
+        private void Produce() {
             timer += Time.deltaTime;
             if (timer < data.GetActualProductionTime(NumberOwned)) return;
             data.Resource.CurrentAmount += data.GetActualProductionAmount(Level)*NumberOwned;
