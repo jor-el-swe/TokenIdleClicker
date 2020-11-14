@@ -1,17 +1,30 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace ResourceProduction {
     public class AutoClicker : MonoBehaviour {
         [SerializeField] private Data data;
+        [SerializeField] private int price;
+        [SerializeField] private Resource.Resource priceResource;
+        [SerializeField] private string textPrefix = "Auto Clicker";
+        [SerializeField] private Text buyText;
 
-        public void Activate() {
-            //TODO add price
-            data.AutoClicker = 1;
+        private void Start() {
+            buyText.text = $"{textPrefix}: {price} {priceResource}";
         }
 
-        //temporary method to stop auto clicker for testing purposes
-        public void Stop() {
+        public void Buy() {
+            if (priceResource.CurrentAmount < price)
+                return;
+            data.AutoClicker = 1;
+            buyText.text = "";
+        }
+
+        // Temporary method to remove auto clicker for testing purposes
+        public void Remove() {
             data.AutoClicker = 0;
+            buyText.text = $"{textPrefix}: {price} {priceResource}";
         }
     }
 }
