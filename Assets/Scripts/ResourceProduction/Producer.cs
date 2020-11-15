@@ -16,6 +16,7 @@ namespace ResourceProduction {
         [SerializeField] private int maxLevel;
         [SerializeField] private TimeSinceQuit timeSinceQuit;
         [SerializeField] private Text producedSinceQuitText;
+        [SerializeField] private ProgressBar progressBar;
 
         private string OwnedKey => $"{data.name}_owned";
         private string LevelKey => $"{data.name}_level";
@@ -85,7 +86,9 @@ namespace ResourceProduction {
         }
         private void Produce () {
             timer += Time.deltaTime;
+            progressBar.FollowProductionTime(data.GetActualProductionTime(NumberOwned), timer);
             if (timer < data.GetActualProductionTime (NumberOwned)) return;
+            progressBar.ResetProgressbar();
             data.Resource.CurrentAmount += data.GetActualProductionAmount (Level) * NumberOwned;
             timer -= data.GetActualProductionTime (NumberOwned);
             isProducing = false;
