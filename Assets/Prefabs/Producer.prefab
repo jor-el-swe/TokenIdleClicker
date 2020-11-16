@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 7283881092820187142}
   - component: {fileID: 1804228970762234499}
   m_Layer: 5
-  m_Name: Store
+  m_Name: Producer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -899,7 +899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.312, g: 0.21362163, b: 0.29232436, a: 0.77254903}
+  m_Color: {r: 0.5786026, g: 0.19588822, b: 0.5849056, a: 0.77254903}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -936,7 +936,6 @@ MonoBehaviour:
   levelText: {fileID: 5845700654877015519}
   productionTimeText: {fileID: 6275738082616185090}
   maxLevel: 3
-  timeSinceQuit: {fileID: 11400000, guid: 82d3b336a7393c24a8a6fb3444bd8f14, type: 2}
   progressBar: {fileID: 3901051697735221845}
 --- !u!1 &6524417794119592800
 GameObject:
