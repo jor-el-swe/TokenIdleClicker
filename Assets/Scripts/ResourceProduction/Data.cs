@@ -15,9 +15,11 @@ namespace ResourceProduction {
         [SerializeField] private float priceMultiplier;
         [SerializeField] private int levelUpgradePrice;
         [SerializeField] private float levelUpgradeMultiplier;
+        [SerializeField] private int autoClickerPrice;
 
         public Resource.Resource Resource => resource;
         private string AutoClickerKey => $"{name}_autoClicker";
+        public int AutoClickerPrice => autoClickerPrice;
         public bool AutoClickerActive => AutoClicker == 1;
         public int AutoClicker {
             get => PlayerPrefs.GetInt(AutoClickerKey, 0);
