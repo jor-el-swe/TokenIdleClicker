@@ -70,11 +70,11 @@ namespace ResourceProduction {
                 Produce ();
         }
         private void ProduceAtStart () {
-            if (!data.AutoClickerActive || ProgressSinceQuit.ElapsedTime < 1)
+            if (!data.AutoClickerActive || ProgressSinceQuit.ElapsedTime < data.GetActualProductionTime (Level))
                 return;
-            var produce = data.GetActualProductionAmount (Level) * (ulong)NumberOwned * 
-                          (ulong)Mathf.RoundToInt (ProgressSinceQuit.ElapsedTime / data.GetActualProductionTime (NumberOwned));
-            
+            var produce = data.GetActualProductionAmount (Level) * (ulong) NumberOwned *
+                (ulong) Mathf.RoundToInt (ProgressSinceQuit.ElapsedTime / data.GetActualProductionTime (NumberOwned));
+
             ProgressSinceQuit.ProducedAmount += produce;
             data.Resource.CurrentAmount += produce;
         }
@@ -83,7 +83,7 @@ namespace ResourceProduction {
             progressBar.FollowProductionTime (data.GetActualProductionTime (NumberOwned), timer);
             if (timer < data.GetActualProductionTime (NumberOwned)) return;
             progressBar.ResetProgressbar ();
-            data.Resource.CurrentAmount += data.GetActualProductionAmount (Level) * (ulong)NumberOwned;
+            data.Resource.CurrentAmount += data.GetActualProductionAmount (Level) * (ulong) NumberOwned;
             timer -= data.GetActualProductionTime (NumberOwned);
             isProducing = false;
         }
