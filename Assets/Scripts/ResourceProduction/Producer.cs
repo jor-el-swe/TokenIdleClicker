@@ -75,7 +75,8 @@ namespace ResourceProduction {
         }
 
         private void UpdateBuyText() {
-            buyText.text = $"Buy {data.GetActualPrice(NumberOwned)} Tokens ";
+            buyText.text = $"Buy\n {SuffixHelper.GetString(data.GetActualPrice(NumberOwned))} Tokens ";
+            
         }
     }
 }
