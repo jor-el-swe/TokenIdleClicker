@@ -5,8 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerHandler : MonoBehaviour
-{
+public class PlayerHandler : MonoBehaviour {
+    [SerializeField] private ResourceProduction.Data startingStore;
     [SerializeField] private Resource.Resource resource;
     [SerializeField] private int resourcesRequired;
     [SerializeField] private Text upgradeText;
@@ -105,6 +105,11 @@ public class PlayerHandler : MonoBehaviour
         ascending = false;
         playerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 0);
         playerLevelText.text = $"Player Level:{playerLevel}";
+
+        var basePrice = startingStore.GetActualPrice(0);
+        Debug.Log("basePrice: " + basePrice);
+        if (resource.CurrentAmount < basePrice)
+            resource.CurrentAmount = basePrice;
         
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);

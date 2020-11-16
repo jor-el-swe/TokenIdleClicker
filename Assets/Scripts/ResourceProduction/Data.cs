@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ResourceProduction {
     [CreateAssetMenu]
@@ -14,7 +15,7 @@ namespace ResourceProduction {
         [SerializeField] private int price;
         [SerializeField] private float priceMultiplier;
         [SerializeField] private int levelUpgradePrice;
-        [SerializeField] private float levelUpgradeMultiplier;
+        [SerializeField] private float levelUpgradePriceMultiplier;
         [SerializeField] private int autoClickerPrice;
 
         public Resource.Resource Resource => resource;
@@ -31,7 +32,7 @@ namespace ResourceProduction {
         }
 
         public int GetActualPrice(int numberGenerators) {
-            return Mathf.CeilToInt(price * Mathf.Pow(priceMultiplier, numberGenerators-1));
+            return Mathf.CeilToInt(price * Mathf.Pow(priceMultiplier, numberGenerators));
         }
 
         public int GetActualProductionAmount(int generatorLevel) {
@@ -39,7 +40,7 @@ namespace ResourceProduction {
         }
 
         public int GetActualUpgradePrice(int level) {
-            return Mathf.CeilToInt(levelUpgradePrice * Mathf.Pow(levelUpgradeMultiplier, level));
+            return Mathf.CeilToInt(levelUpgradePrice * Mathf.Pow(levelUpgradePriceMultiplier, level));
         }
 
         public float GetActualProductionTime(int numberOwned) {

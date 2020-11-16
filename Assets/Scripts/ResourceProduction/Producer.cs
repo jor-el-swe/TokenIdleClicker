@@ -22,7 +22,7 @@ namespace ResourceProduction {
         private string LevelKey => $"{data.name}_level";
 
         private int NumberOwned {
-            get => PlayerPrefs.GetInt (OwnedKey, 1);
+            get => PlayerPrefs.GetInt (OwnedKey, 0);
             set => PlayerPrefs.SetInt (OwnedKey, value);
         }
 
