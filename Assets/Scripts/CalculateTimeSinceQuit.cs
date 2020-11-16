@@ -10,7 +10,7 @@ public class CalculateTimeSinceQuit : MonoBehaviour {
         var oldDateAndTime = ConvertStringToDateTime (savedDateAndTime);
         ProgressSinceQuit.ElapsedTime = Mathf.Max (0f, (float) (currentDateAndTime - oldDateAndTime).TotalSeconds);
     }
-    void OnApplicationQuit () {
+    void FixedUpdate () {
         PlayerPrefs.SetString ("OldTimeAndDate", DateTime.Now.ToString ());
         ProgressSinceQuit.ElapsedTime = 0;
     }
