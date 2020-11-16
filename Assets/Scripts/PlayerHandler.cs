@@ -91,14 +91,7 @@ public class PlayerHandler : MonoBehaviour {
     private void FixedUpdate()
     {
         //TODO change resourcesRequired to match GDD requirements for ascend
-        if (resource.CurrentAmount < resourcesRequired)
-        {
-            ascendButton.image.color = Color.red;
-        }
-        else
-        {
-            ascendButton.image.color = Color.green; 
-        }
+        ascendButton.image.color = resource.CurrentAmount < resourcesRequired ? Color.red : Color.green;
     }
 
     private void Start()
