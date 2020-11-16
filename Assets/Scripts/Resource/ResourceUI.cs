@@ -6,8 +6,10 @@ namespace Resource {
         [SerializeField] private Text resourceText;
         [SerializeField] private Resource resource;
 
-        private void Update() {
-            resourceText.text = $"Tokens:\n{resource.CurrentAmount}";
+        private void Update()
+        {
+            string tokenString = SuffixHelper.GetString(resource.CurrentAmount);
+            resourceText.text = $"Tokens:\n{tokenString}";
         }
     }
 }
