@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public static class ProgressSinceQuit {
+﻿public static class ProgressSinceQuit {
     private static float elapsedTime;
     private static ulong producedAmount;
     public static float ElapsedTime {

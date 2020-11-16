@@ -2,7 +2,7 @@
 using UnityEngine;
 
 public class CalculateTimeSinceQuit : MonoBehaviour {
-    void Awake () {
+    private void Awake () {
         var savedDateAndTime = PlayerPrefs.GetString ("OldTimeAndDate");
         if (savedDateAndTime == "") //Don't use null here!
             return;
@@ -10,11 +10,10 @@ public class CalculateTimeSinceQuit : MonoBehaviour {
         var oldDateAndTime = ConvertStringToDateTime (savedDateAndTime);
         ProgressSinceQuit.ElapsedTime = Mathf.Max (0f, (float) (currentDateAndTime - oldDateAndTime).TotalSeconds);
     }
-    void FixedUpdate () {
+    private void FixedUpdate () {
         PlayerPrefs.SetString ("OldTimeAndDate", DateTime.Now.ToString ());
-        ProgressSinceQuit.ElapsedTime = 0;
     }
-    DateTime ConvertStringToDateTime (string dateTimeString) {
+    private DateTime ConvertStringToDateTime (string dateTimeString) {
         var dateTime = DateTime.Parse (dateTimeString);
         return dateTime;
     }
