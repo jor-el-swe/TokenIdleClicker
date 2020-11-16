@@ -17,6 +17,7 @@ namespace ResourceProduction {
         public void Buy() {
             if (priceResource.CurrentAmount < price)
                 return;
+            priceResource.CurrentAmount -= price;
             data.AutoClicker = 1;
             buyText.text = "";
         }
