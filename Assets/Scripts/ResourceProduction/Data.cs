@@ -10,8 +10,8 @@ namespace ResourceProduction {
         [SerializeField] private float productionTimeMultiplier;
         [SerializeField] private float minimumProductionTime;
         [SerializeField] private int increaseSpeedThreshold;
-        [SerializeField] private int generatedAmount;
-        [SerializeField] private float generatedAmountMultiplier = 3f;
+        [SerializeField] private int productionAmount;
+        [SerializeField] private float producedAmountMultiplier = 3f;
         [SerializeField] private int price;
         [SerializeField] private float priceMultiplier;
         [SerializeField] private int levelUpgradePrice;
@@ -36,7 +36,7 @@ namespace ResourceProduction {
         }
 
         public int GetActualProductionAmount(int generatorLevel) {
-            return Mathf.CeilToInt(generatedAmount * Mathf.Pow(generatedAmountMultiplier, generatorLevel));
+            return Mathf.CeilToInt(productionAmount * Mathf.Pow(producedAmountMultiplier, generatorLevel));
         }
 
         public int GetActualUpgradePrice(int level) {
