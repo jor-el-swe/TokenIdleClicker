@@ -34,7 +34,6 @@ public class PlayerHandler : MonoBehaviour {
         ascending = true;
         
         upgradeText.text = "ascending...";
-        Debug.Log("ascending...");
         //1. ask user if they really want to zap all data and start over, to level up
         //1.5 implement yes/no logic
         //Wait for the button to be pressed
