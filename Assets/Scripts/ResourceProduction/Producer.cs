@@ -15,7 +15,7 @@ namespace ResourceProduction {
         [SerializeField] private Text productionTimeText;
         [SerializeField] private int maxLevel;
         [SerializeField] private TimeSinceQuit timeSinceQuit;
-        [SerializeField] private Text producedSinceQuitText;
+        //[SerializeField] private Text producedSinceQuitText;
         [SerializeField] private ProgressBar progressBar;
 
         private string OwnedKey => $"{data.name}_owned";
@@ -72,17 +72,17 @@ namespace ResourceProduction {
                 Produce ();
         }
         private void ProduceAtStart () {
-            producedSinceQuitText.enabled = false;
+            //producedSinceQuitText.enabled = false;
             if (!data.AutoClickerActive || timeSinceQuit.ElapsedTime < 1)
                 return;
             var produce = data.GetActualProductionAmount (Level) * NumberOwned * Mathf.RoundToInt (timeSinceQuit.ElapsedTime / data.GetActualProductionTime (NumberOwned));
             data.Resource.CurrentAmount += produce;
-            producedSinceQuitText.text = produce.ToString ("Tokens produced while gone:\n 0");
-            producedSinceQuitText.enabled = true;
+            //producedSinceQuitText.text = produce.ToString ("Tokens produced while gone:\n 0");
+            //producedSinceQuitText.enabled = true;
             this.Invoke ("TempDisableText", 5); //Remove later
         }
         private void TempDisableText () { //Remove later!
-            producedSinceQuitText.enabled = false;
+            //producedSinceQuitText.enabled = false;
         }
         private void Produce () {
             timer += Time.deltaTime;
@@ -96,7 +96,7 @@ namespace ResourceProduction {
 
         private void UpdateOwnedText () {
             numberOwnedText.text = NumberOwned.ToString ();
-            productionTimeText.text = data.GetActualProductionTime (NumberOwned).ToString ("0.000");
+            productionTimeText.text = data.GetActualProductionTime (NumberOwned).ToString ("Production Time: 0.00");
         }
 
         private void UpdateLevelText () {
