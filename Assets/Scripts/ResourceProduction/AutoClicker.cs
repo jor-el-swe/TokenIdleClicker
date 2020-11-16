@@ -21,10 +21,10 @@ namespace ResourceProduction {
         }
         private bool IsPurchased => IsPurchasedStatus == 1;
 
-        private void Awake() {
+        private void Start() {
             if (IsPurchased) {
                 buyText.text = "";
-                buyButton.interactable = false;
+                ActivateAutoClicker();
             } else {
                 buyText.text = $"{textPrefix} {data.AutoClickerPrice} {priceResource.name}";
             }
@@ -34,9 +34,13 @@ namespace ResourceProduction {
             if (priceResource.CurrentAmount < data.AutoClickerPrice)
                 return;
             priceResource.CurrentAmount -= data.AutoClickerPrice;
-            data.AutoClicker = 1;
-            IsPurchasedStatus = 1;
             buyText.text = "";
+            IsPurchasedStatus = 1;
+            ActivateAutoClicker();
+        }
+
+        private void ActivateAutoClicker() {
+            data.AutoClicker = 1;
             buyButton.interactable = false;
         }
 

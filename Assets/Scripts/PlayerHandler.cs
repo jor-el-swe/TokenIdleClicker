@@ -108,7 +108,6 @@ public class PlayerHandler : MonoBehaviour {
         playerLevelText.text = $"Player Level:{playerLevel}";
 
         var basePrice = startingStore.GetActualPrice(0);
-        Debug.Log("basePrice: " + basePrice);
         if (resource.CurrentAmount < basePrice)
             resource.CurrentAmount = basePrice;
         

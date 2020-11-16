@@ -61,13 +61,9 @@ namespace ResourceProduction {
             // Disables produceButton when AutoClicker is active and vice versa + checks if you own at least 1 producer
             produceButton.SetActive(!data.AutoClickerActive && NumberOwned > 0);
 
-            if (data.AutoClickerActive) {
+            if (data.AutoClickerActive || isProducing) {
                 Produce();
-                return;
             }
-
-            if (isProducing)
-                Produce();
         }
         private void ProduceAtStart() {
             if (!data.AutoClickerActive || ProgressSinceQuit.ElapsedTime < data.GetActualProductionTime(Level))
