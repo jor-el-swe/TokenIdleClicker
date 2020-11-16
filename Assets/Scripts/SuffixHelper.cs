@@ -8,6 +8,7 @@ public static class SuffixHelper
     {
         ulong numStr;
         string suffix;
+        string decimals = "";
         if( num < 1000ul )
         {
             numStr = num;
@@ -16,24 +17,28 @@ public static class SuffixHelper
         else if( num < 1000000ul )
         {
             numStr = num/1000ul;
-            suffix = " Thousands";
+            decimals = (num % 1000ul).ToString();
+            suffix = " K";
         }
         else if( num < 1000000000ul )
         {
             numStr = num/1000000ul;
+            decimals = (num % 1000000ul).ToString();
             suffix = " Millions";
         }
         else if( num < 1000000000000ul )
         {
             numStr = num/1000000000ul;
+            decimals = (num % 1000000000ul).ToString();
             suffix = " Billions";
         }
         else
         {
             numStr = num/1000000000000ul;
+            decimals = (num % 1000000000000ul).ToString();
             suffix = " Trillions";
         }
-
-        return numStr.ToString() + suffix;
+        decimals += "000";
+        return numStr.ToString() + "." + decimals.Substring(0,2) + suffix;
     }
 }
