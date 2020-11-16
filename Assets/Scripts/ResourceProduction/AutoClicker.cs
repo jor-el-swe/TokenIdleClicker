@@ -23,7 +23,6 @@ namespace ResourceProduction {
 
         private void Start() {
             if (IsPurchased) {
-                buyText.text = "";
                 ActivateAutoClicker();
             } else {
                 buyText.text = $"{textPrefix} {data.AutoClickerPrice} {priceResource.name}";
@@ -34,12 +33,12 @@ namespace ResourceProduction {
             if (priceResource.CurrentAmount < data.AutoClickerPrice)
                 return;
             priceResource.CurrentAmount -= data.AutoClickerPrice;
-            buyText.text = "";
             IsPurchasedStatus = 1;
             ActivateAutoClicker();
         }
 
         private void ActivateAutoClicker() {
+            buyText.text = "";
             data.AutoClicker = 1;
             buyButton.interactable = false;
         }
