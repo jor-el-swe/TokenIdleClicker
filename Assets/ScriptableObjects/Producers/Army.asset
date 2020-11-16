@@ -22,5 +22,5 @@ MonoBehaviour:
   price: 20000000
   priceMultiplier: 1.1
   levelUpgradePrice: 100000000
-  levelUpgradePriceMultiplier: 0
+  levelUpgradePriceMultiplier: 2
   autoClickerPrice: 1000000000

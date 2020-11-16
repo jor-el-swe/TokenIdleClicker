@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PlayerHandler : MonoBehaviour {
     [SerializeField] private ResourceProduction.Data startingStore;
     [SerializeField] private Resource.Resource resource;
-    [SerializeField] private int resourcesRequired;
+    [SerializeField] private ulong resourcesRequired;
     [SerializeField] private Text upgradeText;
     [SerializeField] private Text playerLevelText;
     [SerializeField] private Button yesButton;
@@ -90,6 +90,7 @@ public class PlayerHandler : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        //TODO change resourcesRequired to match GDD requirements for ascend
         if (resource.CurrentAmount < resourcesRequired)
         {
             ascendButton.image.color = Color.red;

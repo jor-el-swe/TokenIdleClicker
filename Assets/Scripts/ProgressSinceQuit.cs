@@ -2,12 +2,12 @@
 
 public static class ProgressSinceQuit {
     private static float elapsedTime;
-    private static int producedAmount;
+    private static ulong producedAmount;
     public static float ElapsedTime {
         get => elapsedTime;
         set => elapsedTime = value;
     }
-    public static int ProducedAmount {
+    public static ulong ProducedAmount {
         get => producedAmount;
         set => producedAmount = value;
     }

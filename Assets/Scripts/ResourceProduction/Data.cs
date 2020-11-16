@@ -16,11 +16,11 @@ namespace ResourceProduction {
         [SerializeField] private float priceMultiplier;
         [SerializeField] private int levelUpgradePrice;
         [SerializeField] private float levelUpgradePriceMultiplier;
-        [SerializeField] private int autoClickerPrice;
+        [SerializeField] private ulong autoClickerPrice;
 
         public Resource.Resource Resource => resource;
         private string AutoClickerKey => $"{name}_autoClicker";
-        public int AutoClickerPrice => autoClickerPrice;
+        public ulong AutoClickerPrice => autoClickerPrice;
         public bool AutoClickerActive => AutoClicker == 1;
         public int AutoClicker {
             get => PlayerPrefs.GetInt(AutoClickerKey, 0);
@@ -31,16 +31,16 @@ namespace ResourceProduction {
             }
         }
 
-        public int GetActualPrice(int numberGenerators) {
-            return Mathf.CeilToInt(price * Mathf.Pow(priceMultiplier, numberGenerators));
+        public ulong GetActualPrice(int numberGenerators) {
+            return (ulong)Mathf.CeilToInt(price * Mathf.Pow(priceMultiplier, numberGenerators));
         }
 
-        public int GetActualProductionAmount(int generatorLevel) {
-            return Mathf.CeilToInt(productionAmount * Mathf.Pow(producedAmountMultiplier, generatorLevel));
+        public ulong GetActualProductionAmount(int generatorLevel) {
+            return (ulong)Mathf.CeilToInt(productionAmount * Mathf.Pow(producedAmountMultiplier, generatorLevel));
         }
 
-        public int GetActualUpgradePrice(int level) {
-            return Mathf.CeilToInt(levelUpgradePrice * Mathf.Pow(levelUpgradePriceMultiplier, level));
+        public ulong GetActualUpgradePrice(int level) {
+            return (ulong)Mathf.CeilToInt(levelUpgradePrice * Mathf.Pow(levelUpgradePriceMultiplier, level));
         }
 
         public float GetActualProductionTime(int numberOwned) {

@@ -17,10 +17,10 @@ MonoBehaviour:
   productionTimeMultiplier: 0.5
   minimumProductionTime: 0.1
   increaseSpeedThreshold: 50
-  generatedAmount: 10
-  generatedAmountMultiplier: 3
+  productionAmount: 10000
+  producedAmountMultiplier: 3
   price: 20
   priceMultiplier: 1.1
   levelUpgradePrice: 100
-  levelUpgradeMultiplier: 2
+  levelUpgradePriceMultiplier: 2
   autoClickerPrice: 1000
