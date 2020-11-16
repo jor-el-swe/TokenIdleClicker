@@ -13,8 +13,10 @@ public class ProducedSinceQuitUI : MonoBehaviour {
             return;
         }
 
+        textUI.text = $"Tokens produced while gone: \n";
+        textUI.text += SuffixHelper.GetString(ProgressSinceQuit.ProducedAmount);
         textUI.enabled = true;
-        textUI.text = ProgressSinceQuit.ProducedAmount.ToString ($"Tokens produced while gone: \n 0");
+
         Destroy (this.gameObject, destroyTime);
     }
 }
