@@ -441,7 +441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 0}
-  price: 1000
   priceResource: {fileID: 11400000, guid: 95b6a74f40d2a4fbcb4e75fe637b530f, type: 2}
+  buyButton: {fileID: 3832743138585273919}
   textPrefix: Auto Clicker
   buyText: {fileID: 3832743137923412191}
