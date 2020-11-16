@@ -5,7 +5,7 @@ namespace ResourceProduction {
     public class Producer : MonoBehaviour {
         private float timer;
         private bool isProducing;
-
+        
         [SerializeField] private Data data;
         [SerializeField] private GameObject produceButton;
         [SerializeField] private Text buyText;
@@ -60,9 +60,9 @@ namespace ResourceProduction {
         }
 
         private void Update () {
-            // Disables produceButton when AutoClicker is active and vice versa
-            produceButton.SetActive (!data.AutoClickerActive);
-
+            // Disables produceButton when AutoClicker is active and vice versa + checks if you own at least 1 producer
+            produceButton.SetActive (!data.AutoClickerActive && NumberOwned > 0);
+            
             if (data.AutoClickerActive) {
                 Produce ();
                 return;
