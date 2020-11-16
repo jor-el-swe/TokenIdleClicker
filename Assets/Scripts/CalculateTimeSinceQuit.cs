@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CalculateTimeSinceQuit : MonoBehaviour {
     private void Awake() {
+
         var savedDateAndTime = PlayerPrefs.GetString("OldTimeAndDate");
         StartCoroutine(OnUpdateDateTime());
         if (savedDateAndTime == "") //Don't use null here!
@@ -14,13 +15,11 @@ public class CalculateTimeSinceQuit : MonoBehaviour {
     }
     private void OnApplicationQuit() {
         PlayerPrefs.SetString("OldTimeAndDate", DateTime.Now.ToString());
-        ProgressSinceQuit.ElapsedTime = 0;
-        ProgressSinceQuit.ProducedAmount = 0;
     }
     private IEnumerator OnUpdateDateTime() {
         while (true) {
             PlayerPrefs.SetString("OldTimeAndDate", DateTime.Now.ToString());
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(60);
         }
     }
     private DateTime ConvertStringToDateTime(string dateTimeString) {
