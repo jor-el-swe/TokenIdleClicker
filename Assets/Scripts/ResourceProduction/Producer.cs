@@ -38,7 +38,6 @@ namespace ResourceProduction {
 
         private void Start() {
             UpdateBuyText();
-            UpdateLevelText();
             UpdateOwnedText();
             ProduceAtStart();
         }
@@ -73,11 +72,6 @@ namespace ResourceProduction {
         private void UpdateOwnedText() {
             numberOwnedText.text = NumberOwned.ToString();
             productionTimeText.text = data.GetActualProductionTime(NumberOwned).ToString("Production Time: 0.00");
-        }
-
-        private void UpdateLevelText() {
-            upgradeText.text = $"Upgrade {data.GetActualUpgradePrice(data.Level)} Tokens ";
-            levelText.text = data.Level.ToString();
         }
 
         private void UpdateBuyText() {
