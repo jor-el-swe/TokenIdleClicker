@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a117655abebe464a93c5599510d07b6, type: 3}
+  m_Name: Store1 1
+  m_EditorClassIdentifier: 
+  resource: {fileID: 11400000, guid: 95b6a74f40d2a4fbcb4e75fe637b530f, type: 2}
+  productionTime: 10
+  productionTimeMultiplier: 0.5
+  minimumProductionTime: 0.1
+  increaseSpeedThreshold: 50
+  generatedAmount: 10
+  generatedAmountMultiplier: 3
+  price: 20
+  priceMultiplier: 1.1
+  levelUpgradePrice: 10
+  levelUpgradeMultiplier: 2

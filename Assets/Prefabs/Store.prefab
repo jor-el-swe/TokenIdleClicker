@@ -928,7 +928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb2098ff1ee04759a8391b78ba6294f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: e72fb0be66d45bc4f885a549030e0f72, type: 2}
+  data: {fileID: 0}
   produceButton: {fileID: 6699695450754324914}
   buyText: {fileID: 6113738058783998782}
   upgradeText: {fileID: 5254718464552106434}
