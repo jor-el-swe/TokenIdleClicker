@@ -13,7 +13,6 @@ namespace ResourceProduction {
         [SerializeField] private Text numberOwnedText;
         [SerializeField] private Text levelText;
         [SerializeField] private Text productionTimeText;
-        [SerializeField] private int maxLevel;
         [SerializeField] private ProgressBar progressBar;
 
         private string OwnedKey => $"{data.name}_owned";
@@ -22,11 +21,6 @@ namespace ResourceProduction {
         private int NumberOwned {
             get => PlayerPrefs.GetInt(OwnedKey, 0);
             set => PlayerPrefs.SetInt(OwnedKey, value);
-        }
-
-        private int Level {
-            get => PlayerPrefs.GetInt(LevelKey, 0);
-            set => PlayerPrefs.SetInt(LevelKey, value);
         }
 
         public void Buy() {
@@ -40,14 +34,6 @@ namespace ResourceProduction {
 
         public void StartProduction() {
             isProducing = true;
-        }
-
-        public void Upgrade() {
-            if (!(Level < maxLevel) || data.Resource.CurrentAmount < data.GetActualUpgradePrice(Level))
-                return;
-            data.Resource.CurrentAmount -= data.GetActualUpgradePrice(Level);
-            Level++;
-            UpdateLevelText();
         }
 
         private void Start() {
@@ -66,9 +52,9 @@ namespace ResourceProduction {
             }
         }
         private void ProduceAtStart() {
-            if (!data.AutoClickerActive || ProgressSinceQuit.ElapsedTime < data.GetActualProductionTime(Level))
+            if (!data.AutoClickerActive || ProgressSinceQuit.ElapsedTime < data.GetActualProductionTime(data.Level))
                 return;
-            var produce = data.GetActualProductionAmount(Level) * (ulong) NumberOwned *
+            var produce = data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned *
                 (ulong) Mathf.RoundToInt(ProgressSinceQuit.ElapsedTime / data.GetActualProductionTime(NumberOwned));
 
             ProgressSinceQuit.ProducedAmount += produce;
@@ -79,7 +65,7 @@ namespace ResourceProduction {
             progressBar.FollowProductionTime(data.GetActualProductionTime(NumberOwned), timer);
             if (timer < data.GetActualProductionTime(NumberOwned)) return;
             progressBar.ResetProgressbar();
-            data.Resource.CurrentAmount += data.GetActualProductionAmount(Level) * (ulong) NumberOwned;
+            data.Resource.CurrentAmount += data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned;
             timer -= data.GetActualProductionTime(NumberOwned);
             isProducing = false;
         }
@@ -90,8 +76,8 @@ namespace ResourceProduction {
         }
 
         private void UpdateLevelText() {
-            upgradeText.text = $"Upgrade {data.GetActualUpgradePrice(Level)} Tokens ";
-            levelText.text = Level.ToString();
+            upgradeText.text = $"Upgrade {data.GetActualUpgradePrice(data.Level)} Tokens ";
+            levelText.text = data.Level.ToString();
         }
 
         private void UpdateBuyText() {

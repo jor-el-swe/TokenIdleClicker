@@ -17,7 +17,8 @@ namespace ResourceProduction {
         [SerializeField] private int levelUpgradePrice;
         [SerializeField] private float levelUpgradePriceMultiplier;
         [SerializeField] private ulong autoClickerPrice;
-
+        
+        public int Level { get; set; }
         public Resource.Resource Resource => resource;
         private string AutoClickerKey => $"{name}_autoClicker";
         public ulong AutoClickerPrice => autoClickerPrice;
