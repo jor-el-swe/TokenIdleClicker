@@ -35,7 +35,8 @@ namespace ResourceProduction {
         }
         
         private void UpdateLevelText() {
-            upgradeText.text = $"Upgrade {data.GetActualUpgradePrice(Level)} {data.Resource.name}";
+            
+            upgradeText.text = $"Upgrade {SuffixHelper.GetString(data.GetActualUpgradePrice(Level))} {data.Resource.name}";
             levelText.text = Level.ToString();
         }
     }
