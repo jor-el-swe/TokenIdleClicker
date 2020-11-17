@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Army
   m_EditorClassIdentifier: 
   resource: {fileID: 11400000, guid: 95b6a74f40d2a4fbcb4e75fe637b530f, type: 2}
-  productionTime: 10
+  productionTime: 2292
   productionTimeMultiplier: 0.5
   minimumProductionTime: 0.1
   increaseSpeedThreshold: 50
-  productionAmount: 0
+  productionAmount: 7464960
   producedAmountMultiplier: 3
-  price: 20000000
+  price: 8957952
   priceMultiplier: 1.1
   levelUpgradePrice: 100000000
   levelUpgradePriceMultiplier: 2

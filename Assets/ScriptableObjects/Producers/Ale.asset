@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Ale
   m_EditorClassIdentifier: 
   resource: {fileID: 11400000, guid: 95b6a74f40d2a4fbcb4e75fe637b530f, type: 2}
-  productionTime: 10
+  productionTime: 2
   productionTimeMultiplier: 0.5
   minimumProductionTime: 0.1
   increaseSpeedThreshold: 50
-  productionAmount: 123123
+  productionAmount: 36
   producedAmountMultiplier: 3
-  price: 200
-  priceMultiplier: 1.1
+  price: 36
+  priceMultiplier: 1.15
   levelUpgradePrice: 1000
   levelUpgradePriceMultiplier: 2
   autoClickerPrice: 10000
