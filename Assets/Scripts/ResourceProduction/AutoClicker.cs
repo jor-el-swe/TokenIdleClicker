@@ -51,7 +51,7 @@ namespace ResourceProduction {
             data.AutoClicker = 0;
             BuyButton.interactable = true;
             Image.enabled = true;
-            buyText.text = $"{data.name}\n{textPrefix}\n{data.AutoClickerPrice}\n{priceResource.name}";
+            buyText.text = $"{data.name}\n{textPrefix}\n{SuffixHelper.GetString(data.AutoClickerPrice)}";
         }
     }
 }
