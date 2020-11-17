@@ -37,12 +37,12 @@ namespace ResourceProduction {
             }
         }
         private void ProduceAtStart() {
-            if (!data.AutoClickerActive || ProgressSinceQuit.ElapsedTime < data.GetActualProductionTime(data.Level))
+            if (!data.AutoClickerActive || ChangeSinceQuit.Data.ElapsedTime < data.GetActualProductionTime(data.Level))
                 return;
             var produce = data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned *
-                (ulong) Mathf.RoundToInt(ProgressSinceQuit.ElapsedTime / data.GetActualProductionTime(NumberOwned));
+                (ulong) Mathf.RoundToInt(ChangeSinceQuit.Data.ElapsedTime / data.GetActualProductionTime(NumberOwned));
 
-            ProgressSinceQuit.ProducedAmount += produce;
+            ChangeSinceQuit.Data.ProducedAmount += produce;
             data.Resource.CurrentAmount += produce;
         }
         private void Produce() {

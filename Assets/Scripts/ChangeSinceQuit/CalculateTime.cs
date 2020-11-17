@@ -2,8 +2,8 @@
 using System.Collections;
 using UnityEngine;
 
-namespace ResourceProduction {
-    public class CalculateTimeSinceQuit : MonoBehaviour {
+namespace ChangeSinceQuit {
+    public class CalculateTime : MonoBehaviour {
         private void Awake() {
 
             var savedDateAndTime = PlayerPrefs.GetString("OldTimeAndDate");
@@ -12,12 +12,12 @@ namespace ResourceProduction {
                 return;
             var currentDateAndTime = DateTime.Now;
             var oldDateAndTime = ConvertStringToDateTime(savedDateAndTime);
-            ProgressSinceQuit.ElapsedTime = Mathf.Max(0f, (float) (currentDateAndTime - oldDateAndTime).TotalSeconds);
+            Data.ElapsedTime = Mathf.Max(0f, (float) (currentDateAndTime - oldDateAndTime).TotalSeconds);
         }
         private void OnDestroy() {
             PlayerPrefs.SetString("OldTimeAndDate", DateTime.Now.ToString());
-            ProgressSinceQuit.ElapsedTime = 0;
-            ProgressSinceQuit.ProducedAmount = 0;
+            Data.ElapsedTime = 0;
+            Data.ProducedAmount = 0;
         }
         private IEnumerator OnUpdateDateTime() {
             while (true) {

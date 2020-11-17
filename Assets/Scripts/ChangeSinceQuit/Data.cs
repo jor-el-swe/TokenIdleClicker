@@ -1,5 +1,5 @@
-﻿namespace ResourceProduction {
-    public static class ProgressSinceQuit {
+﻿namespace ChangeSinceQuit {
+    public static class Data {
         private static float elapsedTime;
         private static ulong producedAmount;
         public static float ElapsedTime {
