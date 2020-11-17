@@ -1,48 +1,62 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public static class SuffixHelper
+﻿public static class SuffixHelper
 {
     public static string GetString( ulong num )
-    {
+    { 
+        const ulong pow10_3 = 1000ul; 
+        const ulong pow10_6 = 1000000ul; 
+        const ulong pow10_9 = 1000000000ul; 
+        const ulong pow10_12 = 1000000000000ul;
+    
+        var displayDecimals = true; 
+        var decimals = "";
         ulong numStr;
         string suffix;
-        string decimals = "";
-        bool displayDecimals = true;
-        if( num < 1000ul )
+        
+        if( num < pow10_3 )
         {
             numStr = num;
             suffix = "";
             displayDecimals = false;
         }
-        else if( num < 1000000ul )
+        else if( num < pow10_6 )
         {
-            numStr = num/1000ul;
-            decimals = (num % 1000ul).ToString();
+            numStr = num/pow10_3;
+            decimals = ModToDecimalString(num, pow10_3, ref displayDecimals);
             suffix = " K";
         }
-        else if( num < 1000000000ul )
+        else if( num < pow10_9 )
         {
-            numStr = num/1000000ul;
-            decimals = (num % 1000000ul).ToString();
+            numStr = num/pow10_6;
+            decimals = ModToDecimalString(num, pow10_6, ref displayDecimals);
             suffix = " Millions";
         }
-        else if( num < 1000000000000ul )
+        else if( num < pow10_12)
         {
-            numStr = num/1000000000ul;
-            decimals = (num % 1000000000ul).ToString();
+            numStr = num/pow10_9;
+            decimals = ModToDecimalString(num, pow10_9, ref displayDecimals);
             suffix = " Billions";
         }
         else
         {
-            numStr = num/1000000000000ul;
-            decimals = (num % 1000000000000ul).ToString();
+            numStr = num/pow10_12;
+            decimals = ModToDecimalString(num, pow10_12, ref displayDecimals);
             suffix = " Trillions";
         }
-        decimals += "000";
+
+        //make sure decimals are not too short string
+        decimals += "00";
+        
         if (displayDecimals)
-        return numStr.ToString() + "." + decimals.Substring(0,2) + suffix;
-        return numStr.ToString();
+            return numStr.ToString() + "." + decimals.Substring(0,2) + suffix;
+        return numStr.ToString() + suffix;
+    }
+
+    private static string ModToDecimalString(ulong num, ulong power, ref bool dispDecimal)
+    {
+        var mod = num % power;
+        if(mod != 0)
+            return mod.ToString();
+        dispDecimal = false;
+        return "";
     }
 }
