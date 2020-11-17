@@ -4,12 +4,13 @@ using UnityEngine.UI;
 
 namespace ResourceProduction {
     public class AutoClicker : MonoBehaviour {
-        
         [SerializeField] private Data data;
         [SerializeField] private Resource.Resource priceResource;
-        [SerializeField] private Button buyButton;
         [SerializeField] private string textPrefix = "Auto Clicker";
         [SerializeField] private Text buyText;
+
+        private Button BuyButton => GetComponent<Button>();
+        private Image Image => GetComponent<Image>();
         private string IsPurchasedKey => $"{name}_PurchaseStatus";
         private int IsPurchasedStatus {
             get => PlayerPrefs.GetInt(IsPurchasedKey, 0);
@@ -40,15 +41,17 @@ namespace ResourceProduction {
         private void ActivateAutoClicker() {
             buyText.text = "";
             data.AutoClicker = 1;
-            buyButton.interactable = false;
+            BuyButton.interactable = false;
+            Image.enabled = false;
         }
 
         // Temporary method to remove auto clicker for testing purposes
         // Delete this method when it's not needed anymore
         public void Remove() {
             data.AutoClicker = 0;
-            buyButton.interactable = true;
-            buyText.text = $"{textPrefix} {data.AutoClickerPrice} {priceResource.name}";
+            BuyButton.interactable = true;
+            Image.enabled = true;
+            buyText.text = $"{data.name}\n{textPrefix}\n{data.AutoClickerPrice}\n{priceResource.name}";
         }
     }
 }
