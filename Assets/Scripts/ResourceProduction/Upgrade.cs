@@ -7,7 +7,7 @@ namespace ResourceProduction {
     public class Upgrade : MonoBehaviour {
         [SerializeField] private int maxLevel;
         [SerializeField] private Data data;
-        [SerializeField] private Text upgradeText;
+        [SerializeField] private Text buyText;
         [SerializeField] private Text levelText;
         
         private string LevelKey => $"{data.name}_upgradeLevel";
@@ -18,7 +18,7 @@ namespace ResourceProduction {
 
         private void Start() {
             SetLevel();
-            UpdateLevelText();
+            UpdateButtonText();
         }
 
         public void Buy() {
@@ -27,16 +27,16 @@ namespace ResourceProduction {
             data.Resource.CurrentAmount -= data.GetActualUpgradePrice(Level);
             Level++;
             SetLevel();
-            UpdateLevelText();
+            UpdateButtonText();
         }
 
         private void SetLevel() {
             data.Level = Level;
         }
         
-        private void UpdateLevelText() {
-            upgradeText.text = $"Upgrade {SuffixHelper.GetString(data.GetActualUpgradePrice(Level))}";
-            levelText.text = $"{data.name}\nRank: {Level}";
+        private void UpdateButtonText() {
+            buyText.text = $"Upgrade:\n{data.name}\n{SuffixHelper.GetString(data.GetActualUpgradePrice(Level))}";
+            levelText.text = $"Rank: {Level}";
         }
     }
 }
