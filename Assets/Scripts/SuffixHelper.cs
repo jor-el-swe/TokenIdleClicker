@@ -9,10 +9,12 @@ public static class SuffixHelper
         ulong numStr;
         string suffix;
         string decimals = "";
+        bool displayDecimals = true;
         if( num < 1000ul )
         {
             numStr = num;
             suffix = "";
+            displayDecimals = false;
         }
         else if( num < 1000000ul )
         {
@@ -39,6 +41,8 @@ public static class SuffixHelper
             suffix = " Trillions";
         }
         decimals += "000";
+        if (displayDecimals)
         return numStr.ToString() + "." + decimals.Substring(0,2) + suffix;
+        return numStr.ToString();
     }
 }
