@@ -15,10 +15,11 @@ public class PlayerHandler : MonoBehaviour {
     [SerializeField] private Button noButton;
     [SerializeField] private Button ascendButton;
     
-    private int playerLevel;
+    public static int PlayerLevel { get; private set; }
+
     private bool clickedYes, clickedNo, ascending;
     private static string PlayerLevelKey => "Player_level";
-    
+
     
     public void Ascend()
     {
@@ -26,6 +27,7 @@ public class PlayerHandler : MonoBehaviour {
         if (ascending) return;
         
         //0. check if user has enuff resources to ascend
+        //TODO change requirements to castles
         if (resource.CurrentAmount < resourcesRequired)
         {
             return;
@@ -62,16 +64,16 @@ public class PlayerHandler : MonoBehaviour {
         }
 
         //2. load players current level in local variable 
-        playerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 0);
+        PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 0);
 
         //3. zap all playerprefs
         PlayerPrefs.DeleteAll();
 
         //increment player level
-        playerLevel++;
+        PlayerLevel++;
         
         //4. store  players current level
-        PlayerPrefs.SetInt(PlayerLevelKey, playerLevel);
+        PlayerPrefs.SetInt(PlayerLevelKey, PlayerLevel);
         
         //5. reload main scene.
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -96,8 +98,8 @@ public class PlayerHandler : MonoBehaviour {
     private void Start()
     {
         ascending = false;
-        playerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 0);
-        playerLevelText.text = $"Player Level:{playerLevel}";
+        PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 0);
+        playerLevelText.text = $"Player Level:{PlayerLevel}";
 
         var basePrice = startingStore.GetActualPrice(0);
         if (resource.CurrentAmount < basePrice)

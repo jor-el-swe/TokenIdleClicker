@@ -5,6 +5,7 @@ namespace ResourceProduction {
     public class Producer : MonoBehaviour {
         public PopupText popupTextPrefab;
 
+        private const float AscendBonus = 15.9f;
         private float timer;
         private bool isProducing;
 
@@ -44,7 +45,7 @@ namespace ResourceProduction {
         private void ProduceAtStart() {
             if (!data.AutoClickerActive || ChangeSinceQuit.Data.ElapsedTime < data.GetActualProductionTime(data.Level))
                 return;
-            var produce = data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned *
+            var produce = data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * (ulong)(1 + AscendBonus * PlayerHandler.PlayerLevel) *
                 (ulong) Mathf.RoundToInt(ChangeSinceQuit.Data.ElapsedTime / data.GetActualProductionTime(NumberOwned));
 
             ChangeSinceQuit.Data.ProducedAmount += produce;
@@ -56,14 +57,14 @@ namespace ResourceProduction {
             if (timer < data.GetActualProductionTime(NumberOwned)) return;
             InstantiatePopupText();
             progressBar.ResetProgressbar();
-            data.Resource.CurrentAmount += data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned;
+            data.Resource.CurrentAmount += data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * (ulong)(1 + AscendBonus * PlayerHandler.PlayerLevel);
             timer -= data.GetActualProductionTime(NumberOwned);
             isProducing = false;
         }
 
         private void InstantiatePopupText() {
             var instance = Instantiate(popupTextPrefab, this.popupTextSpawnPoint.transform);
-            instance.GetComponent<Text>().text = $"+{data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned}";    
+            instance.GetComponent<Text>().text = $"+{data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * (ulong)(1 + AscendBonus * PlayerHandler.PlayerLevel)}";    
             instance.GetComponent<Text>().color = data.Resource.resourceColor;
         }
 
