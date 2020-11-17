@@ -3,12 +3,15 @@ using UnityEngine.UI;
 
 namespace ResourceProduction {
     public class Producer : MonoBehaviour {
+        public PopupText popupTextPrefab;
+
         private float timer;
         private bool isProducing;
 
         [SerializeField] private Data data;
         [SerializeField] private GameObject produceButton;
         [SerializeField] private ProgressBar progressBar;
+        [SerializeField] private Transform popupTextSpawnPoint;
 
         public Data Data => data;
         private string OwnedKey => $"{data.name}_owned";
@@ -51,10 +54,26 @@ namespace ResourceProduction {
             timer += Time.deltaTime;
             progressBar.FollowProductionTime(data.GetActualProductionTime(NumberOwned), timer);
             if (timer < data.GetActualProductionTime(NumberOwned)) return;
+            InstantiatePopupText();
             progressBar.ResetProgressbar();
             data.Resource.CurrentAmount += data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned;
             timer -= data.GetActualProductionTime(NumberOwned);
             isProducing = false;
+        }
+
+        private void InstantiatePopupText() {
+            var instance = Instantiate(popupTextPrefab, this.popupTextSpawnPoint.transform);
+            instance.GetComponent<Text>().text = $"+{data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned}";    
+            instance.GetComponent<Text>().color = data.Resource.resourceColor;
+        }
+
+        private ulong BuyAmount() {
+            ulong buyAmount = BulkPurchase.Data.BuyAmount < 1000 ? (ulong) BulkPurchase.Data.BuyAmount : MaxBulkPurchase();
+            return buyAmount;
+        }
+        private ulong MaxBulkPurchase() {
+            ulong buyAmount = data.Resource.CurrentAmount / data.GetActualPrice(NumberOwned);
+            return buyAmount;
         }
     }
 }
