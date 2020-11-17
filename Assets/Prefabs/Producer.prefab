@@ -568,8 +568,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 010c1cf3fa55ff54689713fdc1646ebf, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.861
-  m_Pitch: 2.62
+  m_Volume: 0.1
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -840,7 +840,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f95fc861dfd49f4bfc0981c5353cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
   buyText: {fileID: 6113738058783998782}
   productionTimeText: {fileID: 6275738082616185090}
   numberOwnedText: {fileID: 2497441876353651030}
