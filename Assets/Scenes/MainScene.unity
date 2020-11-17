@@ -400,7 +400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &259255684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,7 +447,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259255683}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -459,7 +459,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &259255687
 RectTransform:
@@ -3490,12 +3490,12 @@ GameObject:
   - component: {fileID: 1327600323}
   - component: {fileID: 1327600322}
   m_Layer: 5
-  m_Name: High Score Canvas
+  m_Name: Map Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1327600322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3542,7 +3542,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327600321}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -3554,7 +3554,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_TargetDisplay: 0
 --- !u!224 &1327600325
 RectTransform:
@@ -5483,14 +5483,14 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
-    m_MaxSize: 45
+    m_MaxSize: 54
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: High Scores
+  m_Text: Map
 --- !u!224 &1938802412929012486
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5574,7 +5574,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4972007175807855169}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
-        m_MethodName: OnHighScore
+        m_MethodName: OnMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5657,7 +5657,7 @@ GameObject:
   - component: {fileID: 4108316480334291985}
   - component: {fileID: 3402593309716302348}
   m_Layer: 5
-  m_Name: High Score Menu Button
+  m_Name: Map Menu Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5796,10 +5796,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187f8f66c4b4b8048b8cc7e49d301798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainScreen: {fileID: 303189114}
-  upgradeScreen: {fileID: 259255683}
-  highScoreScreen: {fileID: 1327600321}
-  currentState: 0
+  mainScreen: {fileID: 303189117}
+  upgradeScreen: {fileID: 259255686}
+  mapScreen: {fileID: 1327600324}
 --- !u!224 &5455223841237136930
 RectTransform:
   m_ObjectHideFlags: 0

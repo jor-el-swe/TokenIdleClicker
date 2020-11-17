@@ -2,53 +2,37 @@
 
 public class ScreenManager : MonoBehaviour {
 
-    public enum MenuStates {
-        Main,
-        Upgrade,
-        HighScore
-    }
-
-    [SerializeField] private GameObject mainScreen;
-    [SerializeField] private GameObject upgradeScreen;
-    [SerializeField] private GameObject highScoreScreen;
-
-    public MenuStates currentState;
+    [SerializeField] private Canvas mainScreen;
+    [SerializeField] private Canvas upgradeScreen;
+    [SerializeField] private Canvas mapScreen;
+    
 
     private void Awake() {
-        currentState = MenuStates.Main;
+        ShowMain();
     }
-
-    private void Update() {
-        switch (currentState) {
-            case MenuStates.Main:
-                mainScreen.SetActive(true);
-                upgradeScreen.SetActive(false);
-                highScoreScreen.SetActive(false);
-                break;
-            
-            case MenuStates.Upgrade:
-                upgradeScreen.SetActive(true);
-                mainScreen.SetActive(false);
-                highScoreScreen.SetActive(false);
-                break;
-            
-            case MenuStates.HighScore:
-                highScoreScreen.SetActive(true);
-                mainScreen.SetActive(false);
-                upgradeScreen.SetActive(false);
-                break;
-        }
-    }
-
     public void OnUpgrade() {
-        currentState = MenuStates.Upgrade;
+        ShowUpgrade();
+    }
+    public void OnMap() {
+        ShowMap();
+    }
+    public void OnBackToMain() {
+        ShowMain();
     }
 
-    public void OnHighScore() {
-        currentState = MenuStates.HighScore;
+    private void ShowMain() {
+        mainScreen.enabled = true;
+        upgradeScreen.enabled = false;
+        mapScreen.enabled = false;
     }
-    
-    public void OnBackToMain() {
-        currentState = MenuStates.Main;
+    private void ShowUpgrade() {
+        mainScreen.enabled = false;
+        upgradeScreen.enabled = true;
+        mapScreen.enabled = false;
+    }
+    private void ShowMap() {
+        mainScreen.enabled = false;
+        upgradeScreen.enabled = false;
+        mapScreen.enabled = true;
     }
 }
