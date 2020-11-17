@@ -33,14 +33,14 @@ namespace ResourceProduction {
         }
 
         public ulong GetActualPrice(int numberGenerators) {
-            return (ulong) Mathf.CeilToInt(price * Mathf.Pow(priceMultiplier, numberGenerators));
+            return (ulong) (price * Mathf.Pow(priceMultiplier, numberGenerators));
         }
         public(ulong, int) GetActualBulkPrice(int numberGenerators) {
             ulong cost = 0;
             ulong oldCost = 0;
             var buyAmount = 0;
             for (int i = 0; i < BulkPurchase.Data.BuyAmount; i++) {
-                cost += (ulong) Mathf.CeilToInt(price * Mathf.Pow(priceMultiplier, numberGenerators + buyAmount));
+                cost += (ulong) (price * Mathf.Pow(priceMultiplier, numberGenerators + buyAmount));
                 if (resource.CurrentAmount < cost) {
                     if (BulkPurchase.Data.BuyAmount > 1000)
                         return (oldCost, buyAmount);
@@ -53,11 +53,11 @@ namespace ResourceProduction {
             return (cost, buyAmount);
         }
         public ulong GetActualProductionAmount(int generatorLevel) {
-            return (ulong) Mathf.CeilToInt(productionAmount * Mathf.Pow(producedAmountMultiplier, generatorLevel));
+            return (ulong) (productionAmount * Mathf.Pow(producedAmountMultiplier, generatorLevel));
         }
 
         public ulong GetActualUpgradePrice(int level) {
-            return (ulong) Mathf.CeilToInt(levelUpgradePrice * Mathf.Pow(levelUpgradePriceMultiplier, level));
+            return (ulong) (levelUpgradePrice * Mathf.Pow(levelUpgradePriceMultiplier, level));
         }
 
         public float GetActualProductionTime(int numberOwned) {
