@@ -14,7 +14,7 @@ namespace ResourceProduction {
             var oldDateAndTime = ConvertStringToDateTime(savedDateAndTime);
             ProgressSinceQuit.ElapsedTime = Mathf.Max(0f, (float) (currentDateAndTime - oldDateAndTime).TotalSeconds);
         }
-        private void OnApplicationQuit() {
+        private void OnDestroy() {
             PlayerPrefs.SetString("OldTimeAndDate", DateTime.Now.ToString());
             ProgressSinceQuit.ElapsedTime = 0;
             ProgressSinceQuit.ProducedAmount = 0;
