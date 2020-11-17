@@ -743,6 +743,7 @@ GameObject:
   - component: {fileID: 6152231471751565574}
   - component: {fileID: 7283881092820187142}
   - component: {fileID: 1804228970762234499}
+  - component: {fileID: -3084263185761209483}
   m_Layer: 5
   m_Name: Producer
   m_TagString: Untagged
@@ -826,12 +827,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 0}
   produceButton: {fileID: 6699695450754324914}
-  buyText: {fileID: 6113738058783998782}
-  upgradeText: {fileID: 0}
-  numberOwnedText: {fileID: 2497441876353651030}
-  levelText: {fileID: 0}
-  productionTimeText: {fileID: 6275738082616185090}
   progressBar: {fileID: 3901051697735221845}
+--- !u!114 &-3084263185761209483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4524106822972769565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84f95fc861dfd49f4bfc0981c5353cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 0}
+  buyText: {fileID: 6113738058783998782}
+  productionTimeText: {fileID: 6275738082616185090}
+  numberOwnedText: {fileID: 2497441876353651030}
 --- !u!1 &6524417794119592800
 GameObject:
   m_ObjectHideFlags: 0
