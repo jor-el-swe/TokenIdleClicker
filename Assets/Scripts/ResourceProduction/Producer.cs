@@ -17,12 +17,12 @@ namespace ResourceProduction {
             private set => PlayerPrefs.SetInt(OwnedKey, value);
         }
         public void Buy() {
-            ulong buyAmount = BuyAmount();
-            Debug.Log(buyAmount);
-            if (data.Resource.CurrentAmount < (data.GetActualPrice(NumberOwned) * buyAmount))
+            (ulong price, int amount) = data.GetActualBulkPrice(NumberOwned);
+            Debug.Log("Tokens: " + data.Resource.CurrentAmount + " cost" + price + " amount" + amount);
+            if (amount < 1)
                 return;
-            data.Resource.CurrentAmount -= data.GetActualPrice(NumberOwned) * buyAmount;
-            NumberOwned += (int) buyAmount;
+            data.Resource.CurrentAmount -= price;
+            NumberOwned += amount;
         }
         public void StartProduction() {
             isProducing = true;
@@ -55,14 +55,6 @@ namespace ResourceProduction {
             data.Resource.CurrentAmount += data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned;
             timer -= data.GetActualProductionTime(NumberOwned);
             isProducing = false;
-        }
-        private ulong BuyAmount() {
-            ulong buyAmount = BulkPurchase.Data.BuyAmount < 1000 ? (ulong) BulkPurchase.Data.BuyAmount : MaxBulkPurchase();
-            return buyAmount;
-        }
-        private ulong MaxBulkPurchase() {
-            ulong buyAmount = data.Resource.CurrentAmount / data.GetActualPrice(NumberOwned);
-            return buyAmount;
         }
     }
 }
