@@ -64,7 +64,7 @@ public class PlayerHandler : MonoBehaviour {
         }
 
         //2. load players current level in local variable 
-        PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 0);
+        PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 1);
 
         //3. zap all playerprefs
         PlayerPrefs.DeleteAll();
@@ -99,7 +99,7 @@ public class PlayerHandler : MonoBehaviour {
         return true;
     }
     
-    private static int Fib(int aIndex)
+    private int Fib(int aIndex)
     {
         var n1 = 0;
         var n2 = 1;
@@ -121,7 +121,7 @@ public class PlayerHandler : MonoBehaviour {
     private void Start()
     {
         ascending = false;
-        PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 0);
+        PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 1);
         playerLevelText.text = $"Player Level:{PlayerLevel}";
 
         var basePrice = startingStore.GetActualPrice(0);
