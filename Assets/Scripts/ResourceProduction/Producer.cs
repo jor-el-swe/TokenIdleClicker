@@ -4,6 +4,7 @@ using UnityEngine.UI;
 namespace ResourceProduction {
     public class Producer : MonoBehaviour {
         public PopupText popupTextPrefab;
+        public event System.Action onUpdateTextEvent;
         private float timer;
         private bool isProducing;
 
@@ -19,18 +20,23 @@ namespace ResourceProduction {
             private set => PlayerPrefs.SetInt(OwnedKey, value);
         }
         public void Buy() {
-            (ulong price, int amount) = data.GetActualBulkPrice(NumberOwned);
-            Debug.Log("Tokens: " + data.Resource.CurrentAmount + " cost" + price + " amount" + amount);
-            if (amount < 1)
+            (ulong cost, int buyAmount) = data.GetActualBulkPrice(NumberOwned);
+            if (data.Resource.CurrentAmount < cost)
                 return;
-            data.Resource.CurrentAmount -= price;
-            NumberOwned += amount;
+            data.Resource.CurrentAmount -= cost;
+            NumberOwned += buyAmount;
+            UpdateTextEvent();
         }
         public void StartProduction() {
             isProducing = true;
         }
         private void Start() {
             ProduceAtStart();
+            //Invoke("UpdateTextEvent", 1);
+        }
+        private void UpdateTextEvent() {
+            if (onUpdateTextEvent != null)
+                onUpdateTextEvent();
         }
         private void Update() {
             // Disables produceButton when AutoClicker is active and vice versa + checks if you own at least 1 producer
@@ -43,36 +49,30 @@ namespace ResourceProduction {
         private void ProduceAtStart() {
             if (!data.AutoClickerActive || ChangeSinceQuit.Data.ElapsedTime < data.GetActualProductionTime(data.Level))
                 return;
-            var produce = data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * (ulong)(1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel) *
+            var produce = data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * (ulong) (1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel) *
                 (ulong) Mathf.RoundToInt(ChangeSinceQuit.Data.ElapsedTime / data.GetActualProductionTime(NumberOwned));
 
             ChangeSinceQuit.Data.ProducedAmount += produce;
             data.Resource.CurrentAmount += produce;
+            UpdateTextEvent();
         }
         private void Produce() {
             timer += Time.deltaTime;
             progressBar.FollowProductionTime(data.GetActualProductionTime(NumberOwned), timer);
-            if (timer < data.GetActualProductionTime(NumberOwned)) return;
+            if (timer < data.GetActualProductionTime(NumberOwned))
+                return;
             InstantiatePopupText();
             progressBar.ResetProgressbar();
-            data.Resource.CurrentAmount += data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * (ulong)(1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel);
+            data.Resource.CurrentAmount += data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * (ulong) (1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel);
             timer -= data.GetActualProductionTime(NumberOwned);
             isProducing = false;
+            UpdateTextEvent();
         }
 
         private void InstantiatePopupText() {
             var instance = Instantiate(popupTextPrefab, this.popupTextSpawnPoint.transform);
-            instance.GetComponent<Text>().text = $"+{data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * (ulong)(1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel)}";    
+            instance.GetComponent<Text>().text = $"+{data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * (ulong)(1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel)}";
             instance.GetComponent<Text>().color = data.Resource.resourceColor;
-        }
-
-        private ulong BuyAmount() {
-            ulong buyAmount = BulkPurchase.Data.BuyAmount < 1000 ? (ulong) BulkPurchase.Data.BuyAmount : MaxBulkPurchase();
-            return buyAmount;
-        }
-        private ulong MaxBulkPurchase() {
-            ulong buyAmount = data.Resource.CurrentAmount / data.GetActualPrice(NumberOwned);
-            return buyAmount;
         }
     }
 }

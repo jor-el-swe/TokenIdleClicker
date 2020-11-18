@@ -224,5 +224,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1daf825a4ef0fee42a0289ca06c4090f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyPerClick: 01000000050000000a0000006400000010270000
+  buyPerClick: 01000000050000000a00000064000000f4010000
   buttonText: {fileID: 2580033337426511949}

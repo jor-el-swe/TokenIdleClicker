@@ -38,21 +38,18 @@ namespace ResourceProduction {
             return (ulong) (price * Mathf.Pow(priceMultiplier, numberGenerators));
         }
         public(ulong, int) GetActualBulkPrice(int numberGenerators) {
-            ulong cost = 0;
-            ulong oldCost = 0;
-            var buyAmount = 0;
-            for (int i = 0; i < BulkPurchase.Data.BuyAmount; i++) {
-                cost += (ulong) (price * Mathf.Pow(priceMultiplier, numberGenerators + buyAmount));
-                if (resource.CurrentAmount < cost) {
-                    if (BulkPurchase.Data.BuyAmount > 1000)
-                        return (oldCost, buyAmount);
-                    buyAmount = 0;
-                    break;
-                }
-                buyAmount++;
-                oldCost = cost;
+            ulong cost;
+            int amount;
+            if (BulkPurchase.Data.BuyAmount > 100) {
+                amount = Mathf.FloorToInt(Mathf.Log(resource.CurrentAmount * (priceMultiplier - 1) / (price * Mathf.Pow(priceMultiplier, numberGenerators)) + 1, priceMultiplier));
+                if (amount == 0)
+                    amount = 1;
+            } else {
+                amount = BulkPurchase.Data.BuyAmount;
             }
-            return (cost, buyAmount);
+            cost = GetPrice(numberGenerators, amount);
+            Debug.Log($"Cost: {cost} Amount: {amount} Bulk: {BulkPurchase.Data.BuyAmount}");
+            return (cost, amount);
         }
         public ulong GetActualProductionAmount(int generatorLevel) {
             return (ulong) (productionAmount * Mathf.Pow(producedAmountMultiplier, generatorLevel));
@@ -64,6 +61,9 @@ namespace ResourceProduction {
             if (actualProductionTime < minimumProductionTime)
                 actualProductionTime = minimumProductionTime;
             return actualProductionTime;
+        }
+        private ulong GetPrice(int numberGenerators, int amount) {
+            return (ulong) (price * (Mathf.Pow(priceMultiplier, numberGenerators) * ((Mathf.Pow(priceMultiplier, amount) - 1)) / (priceMultiplier - 1)));
         }
     }
 }

@@ -1,38 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using ResourceProduction;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace ResourceProduction
-{
-    public class ProducerUI : MonoBehaviour
-    {
-        
+namespace ResourceProduction {
+    public class ProducerUI : MonoBehaviour {
+
         [SerializeField] private Text buyText;
         [SerializeField] private Text productionTimeText;
         [SerializeField] private Text numberOwnedText;
         [SerializeField] private Image shopIcon;
         private Data data;
-        private Producer Producer => GetComponent<Producer>();
+        private Producer producer;
 
         private void UpdateShopIcon() {
-            shopIcon.enabled = Producer.NumberOwned > 0;
+            shopIcon.enabled = producer.NumberOwned > 0;
         }
         private void Start() {
-            data = Producer.Data;
+            producer = GetComponent<Producer>();
+            data = producer.Data;
+            data = producer.Data;
+            BulkPurchase.ButtonUI.buttonUI.onButtonPress += UpdateBuyText;
+            producer.onUpdateTextEvent += UpdateBuyText;
         }
-        public void FixedUpdate() {
+        private void FixedUpdate() {
             UpdateOwnedText();
-            UpdateBuyText();
             UpdateShopIcon();
         }
         private void UpdateOwnedText() {
-            numberOwnedText.text = Producer.NumberOwned.ToString();
-            productionTimeText.text = data.GetActualProductionTime(Producer.NumberOwned).ToString("Production Time: 0.00");
+            numberOwnedText.text = producer.NumberOwned.ToString();
+            productionTimeText.text = data.GetActualProductionTime(producer.NumberOwned).ToString("Production Time: 0.00");
         }
         private void UpdateBuyText() {
-            buyText.text = $"Buy\n {SuffixHelper.GetString(data.GetActualPrice(Producer.NumberOwned))} Tokens ";
+            buyText.text = $"Buy\n {SuffixHelper.GetString(data.GetActualBulkPrice(producer.NumberOwned).Item1)} Tokens ";
         }
     }
 }
