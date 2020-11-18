@@ -501,11 +501,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle
       objectReference: {fileID: 0}
-    - target: {fileID: 4524106822972769565, guid: 6f48dbf39846c5a41b45cea4ecfa9497,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6738482825245493898, guid: 6f48dbf39846c5a41b45cea4ecfa9497,
         type: 3}
       propertyPath: m_Pivot.x
@@ -550,21 +545,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 290
-      objectReference: {fileID: 0}
-    - target: {fileID: 6738482825245493898, guid: 6f48dbf39846c5a41b45cea4ecfa9497,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6738482825245493898, guid: 6f48dbf39846c5a41b45cea4ecfa9497,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6738482825245493898, guid: 6f48dbf39846c5a41b45cea4ecfa9497,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6738482825245493898, guid: 6f48dbf39846c5a41b45cea4ecfa9497,
         type: 3}
@@ -1403,7 +1383,7 @@ PrefabInstance:
     - target: {fileID: 7971576681086683241, guid: 6eed3b86e136d487ea1969bafccb762a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -160
+      value: -135
       objectReference: {fileID: 0}
     - target: {fileID: 7971576681086683241, guid: 6eed3b86e136d487ea1969bafccb762a,
         type: 3}
