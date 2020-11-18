@@ -59,6 +59,8 @@ namespace ResourceProduction {
             }
         }
         
+        //TODO disable buy button when can't afford, in fixed update (same for autoClicker)
+        
         private void BuyNextUpgrade(ulong upgradePrice) {
             data.Resource.CurrentAmount -= upgradePrice;
             Level++;

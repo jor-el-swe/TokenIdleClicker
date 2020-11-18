@@ -33,13 +33,7 @@ namespace Castle {
             usedNumbers.Add(randomNumber);
             SaveUsedNumbers();
         }
-        
-        public void DeleteCastleIconKeys() {
-            foreach (var number in usedNumbers) {
-                PlayerPrefs.DeleteKey(castleIconKey + number);
-            }
-        }
-        
+
         private void Start() {
             data = Castle.Data;
             LoadCastleIcons();
@@ -74,16 +68,5 @@ namespace Castle {
         private void UpdateBuyText() {
             buyText.text = $"Buy Castle\n {SuffixHelper.GetString(data.GetActualPrice(Castle.NumberOwned))} Tokens";
         }
-
-        // Test function with Space and R keys
-        // 
-        // private void Update() {
-        //     if (Input.GetKeyDown(KeyCode.Space)) {
-        //         EnableRandomCastleIcon();
-        //     }
-        //     if (Input.GetKeyDown(KeyCode.R)) {
-        //         DeleteCastleIconKeys();
-        //     }
-        // }
     }
 }
