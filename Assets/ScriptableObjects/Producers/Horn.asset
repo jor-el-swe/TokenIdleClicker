@@ -17,7 +17,7 @@ MonoBehaviour:
   productionTimeMultiplier: 0.5
   minimumProductionTime: 0.1
   increaseSpeedThreshold: 50
-  productionAmount: 1000000000
+  productionAmount: 1
   producedAmountMultiplier: 3
   price: 3
   priceMultiplier: 1.16

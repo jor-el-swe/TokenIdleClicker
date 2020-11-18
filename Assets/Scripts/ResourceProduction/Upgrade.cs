@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 namespace ResourceProduction {
     public class Upgrade : MonoBehaviour {
-        private int maxLevel = 2;
         [SerializeField] private Data data;
         [SerializeField] private Text buyText;
         [SerializeField] private Text levelText;
