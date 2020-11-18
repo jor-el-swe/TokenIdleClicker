@@ -1,27 +1,50 @@
 ﻿using System;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioHandler: MonoBehaviour
 {
-    private static Text muteText;
+    public AudioMixerGroup music;
+    public AudioMixerGroup sfx;
+    public Text muteSoundsText;
+    public Text muteMusicText;
+    private static bool musicMuted;
 
     private void Start()
     {
-        muteText = GetComponentInChildren<Text>();
+        muteSoundsText.text = "Mute All Sounds";
+        muteMusicText.text = "Mute Music";
     }
 
-    public static void MuteAllSounds()
+    public void MuteAllSounds()
     {
         if (AudioListener.pause)
         {
             AudioListener.pause = false;
-            muteText.text = "Mute All Sounds";
+            muteSoundsText.text = "Mute All Sounds";
         }
         else
         {
             AudioListener.pause = true;
-            muteText.text = "Unmute All Sounds";
+            muteSoundsText.text = "Unmute All Sounds";
         }
+    }
+
+    public void MuteMusic()
+    {
+        if (!musicMuted)
+        {
+            music.audioMixer.SetFloat("musicVol", -80);
+            muteMusicText.text = "Unmute Music";
+            musicMuted = true;
+        }
+        else
+        {
+            music.audioMixer.SetFloat("musicVol", 0);
+            muteMusicText.text = "Mute Music";
+            musicMuted = false;
+        }
+
     }
 }
