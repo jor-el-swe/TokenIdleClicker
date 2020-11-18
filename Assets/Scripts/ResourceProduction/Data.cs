@@ -48,7 +48,6 @@ namespace ResourceProduction {
                 amount = BulkPurchase.Data.BuyAmount;
             }
             cost = GetPrice(numberGenerators, amount);
-            Debug.Log($"Cost: {cost} Amount: {amount} Bulk: {BulkPurchase.Data.BuyAmount}");
             return (cost, amount);
         }
         public ulong GetActualProductionAmount(int generatorLevel) {
