@@ -55,15 +55,17 @@ public class PlayerHandler : MonoBehaviour {
         {
             yield return 0;
         }
-        yesButton.gameObject.SetActive(false);
-        noButton.gameObject.SetActive(false);
         if (clickedNo)
         {
             upgradeText.text = "Ascend";
             ascending = false;
             yield break;
         }
-
+        yesButton.interactable = false;
+        noButton.interactable = false;
+        upgradeText.text = "leveling up!";
+        
+        yield return new WaitForSeconds(5);
         //2. load players current level in local variable 
         PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 1);
 
