@@ -58,9 +58,21 @@ namespace ResourceProduction {
                     return;
             }
         }
-        
-        //TODO disable buy button when can't afford, in fixed update (same for autoClicker)
-        
+
+        private void FixedUpdate() {
+            var currentTokens = data.Resource.CurrentAmount;
+            switch (Level) {
+                case 0:
+                    BuyButton.interactable = currentTokens >= data.FirstUpgradePrice;
+                    break;
+                case 1:
+                    BuyButton.interactable = currentTokens >= data.SecondUpgradePrice;
+                    break;
+                case 2:
+                    BuyButton.interactable = false;
+                    break;
+            }
+        }
         private void BuyNextUpgrade(ulong upgradePrice) {
             data.Resource.CurrentAmount -= upgradePrice;
             Level++;
