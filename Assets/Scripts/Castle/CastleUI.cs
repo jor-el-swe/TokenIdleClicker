@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace Castle {
     public class CastleUI : MonoBehaviour {
+        private string castleIconKey = "castleIcon_";
         [SerializeField] private Text buyText;
         [SerializeField] private Text numberOwnedText;
         [SerializeField] private Image[] castleIcons;
@@ -13,16 +15,6 @@ namespace Castle {
 
         private Data data;
         private Castle Castle => GetComponent<Castle>();
-
-        private void Start() {
-            data = Castle.Data;
-            LoadCastleIcons();
-        }
-        
-        private void FixedUpdate() {
-            UpdateOwnedText();
-            UpdateBuyText();
-        }
 
         public void EnableRandomCastleIcon() {
             var maxCapacity = castleIcons.Length;
@@ -42,15 +34,31 @@ namespace Castle {
             SaveUsedNumbers();
         }
         
-        private void SaveUsedNumbers() {
+        public void DeleteCastleIconKeys() {
             foreach (var number in usedNumbers) {
-                PlayerPrefs.SetInt($"castleIcon_" + number, number);
+                PlayerPrefs.DeleteKey(castleIconKey + number);
             }
         }
         
+        private void Start() {
+            data = Castle.Data;
+            LoadCastleIcons();
+        }
+        
+        private void FixedUpdate() {
+            UpdateOwnedText();
+            UpdateBuyText();
+        }
+        
+        private void SaveUsedNumbers() {
+            foreach (var number in usedNumbers) {
+                PlayerPrefs.SetInt(castleIconKey + number, number);
+            }
+        }
+
         private void LoadCastleIcons() {
             for (var number = 0; number < castleIcons.Length; number++) {
-                var savedNumber = PlayerPrefs.GetInt("castleIcon_" + number, 0);
+                var savedNumber = PlayerPrefs.GetInt(castleIconKey + number, 0);
                 if (savedNumber == 0) 
                     continue;
                 castleIcons[savedNumber].enabled = true;
@@ -66,5 +74,16 @@ namespace Castle {
         private void UpdateBuyText() {
             buyText.text = $"Buy Castle\n {SuffixHelper.GetString(data.GetActualPrice(Castle.NumberOwned))} Tokens";
         }
+
+        // Test function with Space and R keys
+        // 
+        // private void Update() {
+        //     if (Input.GetKeyDown(KeyCode.Space)) {
+        //         EnableRandomCastleIcon();
+        //     }
+        //     if (Input.GetKeyDown(KeyCode.R)) {
+        //         DeleteCastleIconKeys();
+        //     }
+        // }
     }
 }

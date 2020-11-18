@@ -10,6 +10,9 @@ namespace Castle {
             get => PlayerPrefs.GetInt(OwnedKey, 0);
             private set => PlayerPrefs.SetInt(OwnedKey, value);
         }
+        
+        public void DeleteCastleIconKeys() => UI.DeleteCastleIconKeys();
+        
         public void Buy() {
             var castlePrice = data.GetActualPrice(NumberOwned);
             if (data.Resource.CurrentAmount < castlePrice)
