@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9528302, g: 0.8494571, b: 0.94099414, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1011,6 +1011,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupTextPrefab: {fileID: 7931557911440886001, guid: d8f8c958871001f4aa37567b57f1d4a9,
     type: 3}
+  nonAccessColor: {r: 0.7058824, g: 0.3372549, b: 0.3731498, a: 0}
+  accessColor: {r: 0.3372549, g: 0.7058824, b: 0.3529412, a: 0}
   data: {fileID: 0}
   produceButton: {fileID: 6699695450754324914}
   progressBar: {fileID: 3901051697735221845}
@@ -1173,7 +1175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2264151, g: 0.09505162, b: 0.21851951, a: 0.5176471}
+  m_Color: {r: 0.1385952, g: 0.20784314, b: 0.13725491, a: 0.46666667}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
