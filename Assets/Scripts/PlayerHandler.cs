@@ -15,6 +15,7 @@ public class PlayerHandler : MonoBehaviour {
     [SerializeField] private Button noButton;
     [SerializeField] private Button ascendButton;
     [SerializeField] private Castle.Castle castleReference;
+    [SerializeField] private Text castlesNeeded;
     
     public static int PlayerLevel { get; private set; }
     private bool clickedYes, clickedNo, ascending;
@@ -101,7 +102,6 @@ public class PlayerHandler : MonoBehaviour {
     
     private int Fib(int aIndex)
     {
-        Debug.Log($"player level:{aIndex-2}");
         var n1 = 0;
         var n2 = 1;
         for(var i = 0; i < aIndex; i++)
@@ -110,7 +110,6 @@ public class PlayerHandler : MonoBehaviour {
             n1 = n2;
             n2 = tmp;
         }
-        Debug.Log($"castles required:{n1}");
         return n1;
     }
     private void FixedUpdate()
@@ -132,5 +131,6 @@ public class PlayerHandler : MonoBehaviour {
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
         ascendButton.image.color = Color.red;
+        castlesNeeded.text = $"Needed: {Fib(PlayerLevel + 2)}";
     }
 }

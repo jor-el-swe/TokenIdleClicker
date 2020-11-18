@@ -1488,7 +1488,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303189114}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -2323,6 +2323,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f48dbf39846c5a41b45cea4ecfa9497, type: 3}
+--- !u!114 &457950638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3751559227890299610, guid: 6f48dbf39846c5a41b45cea4ecfa9497,
+    type: 3}
+  m_PrefabInstance: {fileID: 457950637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &487764811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5310,6 +5322,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1327600325}
     m_Modifications:
+    - target: {fileID: 8368339788427753540, guid: 1c51255cb466c9d49a77a7c181ff26c0,
+        type: 3}
+      propertyPath: castlesNeeded
+      value: 
+      objectReference: {fileID: 457950638}
     - target: {fileID: 8368339788427753540, guid: 1c51255cb466c9d49a77a7c181ff26c0,
         type: 3}
       propertyPath: castleReference
