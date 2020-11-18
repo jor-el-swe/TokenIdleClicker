@@ -16,8 +16,6 @@ namespace ResourceProduction {
         [SerializeField] private float priceMultiplier;
         [SerializeField] private ulong firstUpgradePrice;
         [SerializeField] private ulong secondUpgradePrice;
-        [SerializeField] private int levelUpgradePrice;
-        [SerializeField] private float levelUpgradePriceMultiplier;
         [SerializeField] private ulong autoClickerPrice;
 
         public int Level { get; set; }
@@ -58,10 +56,6 @@ namespace ResourceProduction {
         }
         public ulong GetActualProductionAmount(int generatorLevel) {
             return (ulong) (productionAmount * Mathf.Pow(producedAmountMultiplier, generatorLevel));
-        }
-
-        public ulong GetActualUpgradePrice(int level) {
-            return (ulong) (levelUpgradePrice * Mathf.Pow(levelUpgradePriceMultiplier, level));
         }
 
         public float GetActualProductionTime(int numberOwned) {
