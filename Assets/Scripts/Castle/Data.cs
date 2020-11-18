@@ -13,7 +13,7 @@ namespace Castle {
         public float AscensionBonus => ascensionBonus;
 
         public ulong GetActualPrice(int numberOwned) {
-            return (ulong) Mathf.RoundToInt (price * Mathf.Pow (priceMultiplier, numberOwned));
+            return (ulong) (price * Mathf.Pow (priceMultiplier, numberOwned));
         }
     }
 }
