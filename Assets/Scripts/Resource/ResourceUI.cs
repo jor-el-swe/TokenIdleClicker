@@ -9,7 +9,7 @@ namespace Resource {
         private void Update()
         {
             string tokenString = SuffixHelper.GetString(resource.CurrentAmount);
-            resourceText.text = $"Tokens:\n{tokenString}";
+            resourceText.text = $"{tokenString}";
         }
     }
 }
