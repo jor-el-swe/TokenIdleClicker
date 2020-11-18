@@ -15637,6 +15637,63 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: Play
       objectReference: {fileID: 0}
+    - target: {fileID: 3023247964709919458, guid: e5775cf455a109049bb328781b33344c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1977da5fc91673c40b2699400b6e7c05,
+        type: 3}
+    - target: {fileID: 3023247964736518568, guid: e5775cf455a109049bb328781b33344c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 29e4ff0487ccb8246ab7969b6363817e,
+        type: 3}
+    - target: {fileID: 3023247964868655461, guid: e5775cf455a109049bb328781b33344c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9e7f2ff8dd116bf4c97332801b16350d,
+        type: 3}
+    - target: {fileID: 3023247964868655461, guid: e5775cf455a109049bb328781b33344c,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023247964868655461, guid: e5775cf455a109049bb328781b33344c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023247964868655461, guid: e5775cf455a109049bb328781b33344c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023247965013657377, guid: e5775cf455a109049bb328781b33344c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 45aea9cbbe3741c4f97639604e0a7fb1,
+        type: 3}
+    - target: {fileID: 3023247965121911916, guid: e5775cf455a109049bb328781b33344c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 153fbb8f059a98340b7e08b74db8506e,
+        type: 3}
+    - target: {fileID: 3023247966550613895, guid: e5775cf455a109049bb328781b33344c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 295f35a95be196448a7a73e3bf214e2c,
+        type: 3}
+    - target: {fileID: 3023247966566111461, guid: e5775cf455a109049bb328781b33344c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9db1145df90b76648822a00d7e771d48,
+        type: 3}
     - target: {fileID: 7371346346674860235, guid: e5775cf455a109049bb328781b33344c,
         type: 3}
       propertyPath: m_Pivot.x
