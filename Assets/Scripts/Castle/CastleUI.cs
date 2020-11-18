@@ -5,6 +5,7 @@ namespace Castle {
     public class CastleUI : MonoBehaviour {
         [SerializeField] private Text buyText;
         [SerializeField] private Text numberOwnedText;
+        [SerializeField] private Image[] castleIcons;
         private Data data;
         private Castle Castle => GetComponent<Castle>();
 
