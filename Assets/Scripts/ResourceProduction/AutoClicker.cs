@@ -22,6 +22,14 @@ namespace ResourceProduction {
         }
         private bool IsPurchased => IsPurchasedStatus == 1;
 
+        public void Buy() {
+            if (priceResource.CurrentAmount < data.AutoClickerPrice)
+                return;
+            priceResource.CurrentAmount -= data.AutoClickerPrice;
+            IsPurchasedStatus = 1;
+            ActivateAutoClicker();
+        }
+        
         private void Start() {
             if (IsPurchased) {
                 ActivateAutoClicker();
@@ -30,12 +38,8 @@ namespace ResourceProduction {
             }
         }
 
-        public void Buy() {
-            if (priceResource.CurrentAmount < data.AutoClickerPrice)
-                return;
-            priceResource.CurrentAmount -= data.AutoClickerPrice;
-            IsPurchasedStatus = 1;
-            ActivateAutoClicker();
+        private void FixedUpdate() {
+            BuyButton.interactable = priceResource.CurrentAmount >= data.AutoClickerPrice;
         }
 
         private void ActivateAutoClicker() {
@@ -43,15 +47,6 @@ namespace ResourceProduction {
             data.AutoClicker = 1;
             BuyButton.interactable = false;
             Image.enabled = false;
-        }
-
-        // Temporary method to remove auto clicker for testing purposes
-        // Delete this method when it's not needed anymore
-        public void Remove() {
-            data.AutoClicker = 0;
-            BuyButton.interactable = true;
-            Image.enabled = true;
-            buyText.text = $"{data.name}\n{textPrefix}\n{SuffixHelper.GetString(data.AutoClickerPrice)}";
         }
     }
 }
