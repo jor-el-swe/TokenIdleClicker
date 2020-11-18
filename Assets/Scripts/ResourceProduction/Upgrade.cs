@@ -9,7 +9,9 @@ namespace ResourceProduction {
         [SerializeField] private Data data;
         [SerializeField] private Text buyText;
         [SerializeField] private Text levelText;
-        
+        [SerializeField] private Image[] images;
+
+        private Button BuyButton => GetComponent<Button>();
         private string LevelKey => $"{data.name}_upgradeLevel";
         private int Level {
             get => PlayerPrefs.GetInt(LevelKey, 0);
@@ -18,7 +20,8 @@ namespace ResourceProduction {
         
         private void Start() {
             SetLevel();
-            //TODO show correct image
+            SetImage();
+            SetBuyButton();
             switch (Level) {
                 case 0:
                     UpdateButtonText(data.FirstUpgradePrice);
@@ -31,23 +34,26 @@ namespace ResourceProduction {
                     levelText.text = "Rank: Max";
                     break;
             }
+            
         }
-        
+
         public void Buy() {
             var currentTokens = data.Resource.CurrentAmount;
             var firstUpgradePrice = data.FirstUpgradePrice;
             var secondUpgradePrice = data.SecondUpgradePrice;
-            //TODO show correct image
+            
             switch (Level) {
                 case 0 when currentTokens >= firstUpgradePrice:
                     BuyNextUpgrade(firstUpgradePrice);
                     UpdateButtonText(secondUpgradePrice);
+                    SetImage();
                     break;
                 case 1 when currentTokens >= secondUpgradePrice:
                     BuyNextUpgrade(secondUpgradePrice);
                     buyText.text = "";
                     levelText.text = "Rank: Max";
-                    //TODO disable button
+                    SetImage();
+                    SetBuyButton();
                     break;
                 case 2:
                     return;
@@ -58,6 +64,16 @@ namespace ResourceProduction {
             data.Resource.CurrentAmount -= upgradePrice;
             Level++;
             SetLevel();
+        }
+        
+        private void SetImage() {
+            for (var i = 0; i < images.Length; i++) {
+                images[i].enabled = i == Level;
+            }
+        }
+        
+        private void SetBuyButton() {
+            BuyButton.enabled = Level != 2;
         }
         
         private void SetLevel() {
