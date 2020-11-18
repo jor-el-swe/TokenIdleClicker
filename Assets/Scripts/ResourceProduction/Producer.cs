@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace ResourceProduction {
     public class Producer : MonoBehaviour {
         public PopupText popupTextPrefab;
-        public event System.Action onUpdateTextEvent;
+        public static event System.Action onUpdateTextEvent;
         private float timer;
         private bool isProducing;
 
@@ -33,7 +33,7 @@ namespace ResourceProduction {
         private void Start() {
             ProduceAtStart();
         }
-        private void UpdateTextEvent() {
+        private static void UpdateTextEvent() {
             if (onUpdateTextEvent != null)
                 onUpdateTextEvent();
         }
@@ -64,7 +64,6 @@ namespace ResourceProduction {
             data.Resource.CurrentAmount += data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * (ulong) (1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel);
             timer -= data.GetActualProductionTime(NumberOwned);
             isProducing = false;
-            UpdateTextEvent();
         }
 
         private void InstantiatePopupText() {

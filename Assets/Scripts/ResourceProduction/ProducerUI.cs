@@ -10,13 +10,12 @@ namespace ResourceProduction {
         [SerializeField] private Text numberOwnedText;
         [SerializeField] private Image shopIcon;
         private Data data;
-        private Producer producer;
+        private Producer producer => GetComponent<Producer>();
         private void Start() {
-            producer = GetComponent<Producer>();
             data = producer.Data;
             data = producer.Data;
             BulkPurchase.ButtonUI.buttonUI.onButtonPress += UpdateBuyText;
-            producer.onUpdateTextEvent += UpdateAllUI;
+            Producer.onUpdateTextEvent += UpdateAllUI;
             StartCoroutine(OnUpdateUI());
         }
         private IEnumerator OnUpdateUI() {
@@ -43,7 +42,7 @@ namespace ResourceProduction {
         }
         private void OnDestroy() {
             BulkPurchase.ButtonUI.buttonUI.onButtonPress -= UpdateBuyText;
-            producer.onUpdateTextEvent -= UpdateAllUI;
+            Producer.onUpdateTextEvent -= UpdateAllUI;
         }
     }
 }
