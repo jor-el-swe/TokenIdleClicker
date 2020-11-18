@@ -15,6 +15,7 @@ public class AudioHandler: MonoBehaviour
     {
         muteSoundsText.text = "Mute All Sounds";
         muteMusicText.text = "Mute Music";
+        AudioListener.pause = false;
     }
 
     public void MuteAllSounds()

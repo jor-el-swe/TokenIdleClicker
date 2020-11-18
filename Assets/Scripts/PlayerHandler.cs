@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,7 +17,8 @@ public class PlayerHandler : MonoBehaviour {
     [SerializeField] private Button ascendButton;
     [SerializeField] private Castle.Castle castleReference;
     [SerializeField] private Text castlesNeeded;
-    
+
+    public AudioHandler audiohandler;
     public static int PlayerLevel { get; private set; }
     private bool clickedYes, clickedNo, ascending;
     private static string PlayerLevelKey => "Player_level";
@@ -66,6 +68,7 @@ public class PlayerHandler : MonoBehaviour {
         upgradeText.text = "leveling up!";
         
         yield return new WaitForSeconds(5);
+        audiohandler.MuteMusic();
         //2. load players current level in local variable 
         PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 1);
 
