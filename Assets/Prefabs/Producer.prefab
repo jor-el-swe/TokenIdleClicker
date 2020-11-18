@@ -863,6 +863,7 @@ MonoBehaviour:
   produceButton: {fileID: 6699695450754324914}
   progressBar: {fileID: 3901051697735221845}
   popupTextSpawnPoint: {fileID: 6754771144881111921}
+  castleData: {fileID: 11400000, guid: fd3e3d287effa2448bac8d812b7e8c42, type: 2}
 --- !u!114 &-3084263185761209483
 MonoBehaviour:
   m_ObjectHideFlags: 0
