@@ -38,7 +38,6 @@ namespace ResourceProduction {
             return (ulong) (price * Mathf.Pow(priceMultiplier, numberGenerators));
         }
         public(ulong, int) GetActualBulkPrice(int numberGenerators) {
-            ulong cost;
             int amount;
             if (BulkPurchase.Data.BuyAmount > 100) {
                 amount = Mathf.FloorToInt(Mathf.Log(resource.CurrentAmount * (priceMultiplier - 1) / (price * Mathf.Pow(priceMultiplier, numberGenerators)) + 1, priceMultiplier));
@@ -47,8 +46,7 @@ namespace ResourceProduction {
             } else {
                 amount = BulkPurchase.Data.BuyAmount;
             }
-            cost = GetPrice(numberGenerators, amount);
-            return (cost, amount);
+            return (GetPrice(numberGenerators, amount), amount);
         }
         public ulong GetActualProductionAmount(int generatorLevel) {
             return (ulong) (productionAmount * Mathf.Pow(producedAmountMultiplier, generatorLevel));
