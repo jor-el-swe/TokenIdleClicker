@@ -18,7 +18,7 @@ public class PlayerHandler : MonoBehaviour {
     [SerializeField] private Castle.Castle castleReference;
     [SerializeField] private Text castlesNeeded;
 
-    public AudioHandler audiohandler;
+    private AudioHandler audiohandler;
     public static int PlayerLevel { get; private set; }
     private bool clickedYes, clickedNo, ascending;
     private static string PlayerLevelKey => "Player_level";
@@ -64,7 +64,7 @@ public class PlayerHandler : MonoBehaviour {
         yesButton.interactable = false;
         noButton.interactable = false;
         upgradeText.text = "leveling up!";
-        
+        audiohandler.Play("newLevel");
         yield return new WaitForSeconds(5);
         audiohandler.PlayMusic();
         //2. load players current level in local variable 
@@ -122,16 +122,19 @@ public class PlayerHandler : MonoBehaviour {
 
     private void Start()
     {
+        //get audioHandler
+        audiohandler = FindObjectOfType<AudioHandler>();
+        
+        //init ascending logics and UI 
         ascending = false;
         PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 1);
         playerLevelText.text = $"Player Level:{PlayerLevel}";
-
-        var basePrice = startingStore.GetActualPrice(0);
-        if (resource.CurrentAmount < basePrice)
-            resource.CurrentAmount = basePrice;
-        
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
         castlesNeeded.text = $"Needed: {Fib(PlayerLevel + 2)}";
+        
+        var basePrice = startingStore.GetActualPrice(0);
+        if (resource.CurrentAmount < basePrice)
+            resource.CurrentAmount = basePrice;
     }
 }
