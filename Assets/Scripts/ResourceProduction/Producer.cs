@@ -32,7 +32,6 @@ namespace ResourceProduction {
         }
         private void Start() {
             ProduceAtStart();
-            //Invoke("UpdateTextEvent", 1);
         }
         private void UpdateTextEvent() {
             if (onUpdateTextEvent != null)
@@ -54,7 +53,6 @@ namespace ResourceProduction {
 
             ChangeSinceQuit.Data.ProducedAmount += produce;
             data.Resource.CurrentAmount += produce;
-            UpdateTextEvent();
         }
         private void Produce() {
             timer += Time.deltaTime;

@@ -23,17 +23,27 @@ namespace ResourceProduction {
             data = producer.Data;
             BulkPurchase.ButtonUI.buttonUI.onButtonPress += UpdateBuyText;
             producer.onUpdateTextEvent += UpdateBuyText;
+            StartCoroutine(OnUpdateUI());
         }
-        private void FixedUpdate() {
-            UpdateOwnedText();
-            UpdateShopIcon();
+        private void OnDestroy() {
+            BulkPurchase.ButtonUI.buttonUI.onButtonPress -= UpdateBuyText;
+            producer.onUpdateTextEvent -= UpdateBuyText;
+        }
+        private IEnumerator OnUpdateUI() {
+            while (true) {
+                UpdateOwnedText();
+                UpdateShopIcon();
+                UpdateBuyText();
+                yield return new WaitForSeconds(1);
+            }
         }
         private void UpdateOwnedText() {
             numberOwnedText.text = producer.NumberOwned.ToString();
             productionTimeText.text = data.GetActualProductionTime(producer.NumberOwned).ToString("Production Time: 0.00");
         }
         private void UpdateBuyText() {
-            buyText.text = $"Buy\n {SuffixHelper.GetString(data.GetActualBulkPrice(producer.NumberOwned).Item1)} Tokens ";
+            (ulong cost, int amount) = data.GetActualBulkPrice(producer.NumberOwned);
+            buyText.text = $"Buy {amount}:\n {SuffixHelper.GetString(cost)} Tokens ";
         }
     }
 }
