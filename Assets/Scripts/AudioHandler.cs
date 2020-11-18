@@ -118,6 +118,7 @@ public class AudioHandler: MonoBehaviour
             sound.audioSource.volume = sound.volume;
             sound.audioSource.pitch = sound.pitch;
             sound.audioSource.loop = sound.loop;
+            sound.audioSource.playOnAwake = false;
         }
     }
     

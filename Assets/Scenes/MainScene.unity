@@ -134,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 21341475}
   - component: {fileID: 21341476}
+  - component: {fileID: 21341477}
   m_Layer: 0
   m_Name: AudioPlayer
   m_TagString: Untagged
@@ -252,6 +253,60 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &21341477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21341474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c51c1244d31935647989ee026f80a88c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 2
+  sounds:
+  - soundName: click
+    clip: {fileID: 8300000, guid: 256829d40e67d6f409ea527a33b3fff2, type: 3}
+    volume: 0.061
+    pitch: 2.54
+    loop: 0
+    audioSource: {fileID: 0}
+  - soundName: newLevel
+    clip: {fileID: 8300000, guid: 66229c5d4c907154fa7bb72b3a7c2f22, type: 3}
+    volume: 0.566
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - soundName: newScreen
+    clip: {fileID: 8300000, guid: 83529706d62f422459b27c2767d7ac28, type: 3}
+    volume: 0.337
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - soundName: nono
+    clip: {fileID: 8300000, guid: fd002107baf786b40a7701d387456e45, type: 3}
+    volume: 0.265
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - soundName: placeStore
+    clip: {fileID: 8300000, guid: a58aa502a498ff44a9a78668fd1ad789, type: 3}
+    volume: 0.471
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - soundName: upgraded
+    clip: {fileID: 8300000, guid: c93297f6a7f0eac4d8af42cabeb53fa1, type: 3}
+    volume: 0.307
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  music: {fileID: 5901537071083657185, guid: 127d8d6383ff6d24e8f3d058c575bf28, type: 2}
+  sfx: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28, type: 2}
+  muteSoundsText: {fileID: 1106668161}
+  muteMusicText: {fileID: 1106668161}
 --- !u!1001 &32116151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1483,7 +1538,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303189114}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -2951,6 +3006,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c51c1244d31935647989ee026f80a88c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeTime: 2
+  sounds: []
   music: {fileID: 5901537071083657185, guid: 127d8d6383ff6d24e8f3d058c575bf28, type: 2}
   sfx: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28, type: 2}
   muteSoundsText: {fileID: 1106668161}
@@ -3888,6 +3945,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c51c1244d31935647989ee026f80a88c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeTime: 2
+  sounds: []
   music: {fileID: 0}
   sfx: {fileID: 0}
   muteSoundsText: {fileID: 1106668161}
@@ -8544,7 +8603,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327600321}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
