@@ -9,7 +9,7 @@ namespace ResourceProduction {
         [SerializeField] private float productionTime;
         [SerializeField] private float productionTimeMultiplier;
         [SerializeField] private float minimumProductionTime;
-        [SerializeField] private int increaseSpeedThreshold;
+        [SerializeField] private int[] increaseSpeedThresholds = {50, 150, 300, 500, 1000};
         [SerializeField] private int productionAmount;
         [SerializeField] private float producedAmountMultiplier = 3f;
         [SerializeField] private int price;
@@ -53,8 +53,13 @@ namespace ResourceProduction {
         }
 
         public float GetActualProductionTime(int numberOwned) {
-            var increments = numberOwned / increaseSpeedThreshold;
-            var actualProductionTime = productionTime * Mathf.Pow(productionTimeMultiplier, increments);
+            var speedLevel = increaseSpeedThresholds.Length;
+            for (var i = 0; i < speedLevel; i++) {
+                if (numberOwned < increaseSpeedThresholds[i]) {
+                    speedLevel = i;
+                }
+            }
+            var actualProductionTime = productionTime * Mathf.Pow(productionTimeMultiplier, speedLevel);
             if (actualProductionTime < minimumProductionTime)
                 actualProductionTime = minimumProductionTime;
             return actualProductionTime;

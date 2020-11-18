@@ -48,27 +48,31 @@ namespace ResourceProduction {
         private void ProduceAtStart() {
             if (!data.AutoClickerActive || ChangeSinceQuit.Data.ElapsedTime < data.GetActualProductionTime(data.Level))
                 return;
-            var produce = data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * (ulong) (1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel) *
-                (ulong) Mathf.RoundToInt(ChangeSinceQuit.Data.ElapsedTime / data.GetActualProductionTime(NumberOwned));
-
+            var produce = data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * 
+                          (ulong) (1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel) * 
+                          (ulong) Mathf.RoundToInt(ChangeSinceQuit.Data.ElapsedTime / data.GetActualProductionTime(NumberOwned));
+            
             ChangeSinceQuit.Data.ProducedAmount += produce;
             data.Resource.CurrentAmount += produce;
         }
         private void Produce() {
             timer += Time.deltaTime;
-            progressBar.FollowProductionTime(data.GetActualProductionTime(NumberOwned), timer);
-            if (timer < data.GetActualProductionTime(NumberOwned))
+            var productionTime = data.GetActualProductionTime(NumberOwned);
+            progressBar.FollowProductionTime(productionTime, timer);
+            if (timer < productionTime)
                 return;
             InstantiatePopupText();
             progressBar.ResetProgressbar();
-            data.Resource.CurrentAmount += data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * (ulong) (1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel);
-            timer -= data.GetActualProductionTime(NumberOwned);
+            data.Resource.CurrentAmount += data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * 
+                                           (ulong) (1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel);
+            timer -= productionTime;
             isProducing = false;
         }
 
         private void InstantiatePopupText() {
             var instance = Instantiate(popupTextPrefab, this.popupTextSpawnPoint.transform);
-            instance.GetComponent<Text>().text = $"+{data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * (ulong)(1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel)}";
+            instance.GetComponent<Text>().text = $@"+{data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * 
+                                                     (ulong)(1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel)}";
             instance.GetComponent<Text>().color = data.Resource.resourceColor;
         }
     }
