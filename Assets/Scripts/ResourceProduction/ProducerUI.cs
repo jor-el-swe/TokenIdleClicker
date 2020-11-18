@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using ResourceProduction;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,10 +11,6 @@ namespace ResourceProduction {
         [SerializeField] private Image shopIcon;
         private Data data;
         private Producer producer;
-
-        private void UpdateShopIcon() {
-            shopIcon.enabled = producer.NumberOwned > 0;
-        }
         private void Start() {
             producer = GetComponent<Producer>();
             data = producer.Data;
@@ -24,10 +18,6 @@ namespace ResourceProduction {
             BulkPurchase.ButtonUI.buttonUI.onButtonPress += UpdateBuyText;
             producer.onUpdateTextEvent += UpdateAllUI;
             StartCoroutine(OnUpdateUI());
-        }
-        private void OnDestroy() {
-            BulkPurchase.ButtonUI.buttonUI.onButtonPress -= UpdateBuyText;
-            producer.onUpdateTextEvent -= UpdateAllUI;
         }
         private IEnumerator OnUpdateUI() {
             while (true) {
@@ -47,6 +37,13 @@ namespace ResourceProduction {
         private void UpdateBuyText() {
             (ulong cost, int amount) = data.GetActualBulkPrice(producer.NumberOwned);
             buyText.text = $"Buy {amount}:\n {SuffixHelper.GetString(cost)} Tokens ";
+        }
+        private void UpdateShopIcon() {
+            shopIcon.enabled = producer.NumberOwned > 0;
+        }
+        private void OnDestroy() {
+            BulkPurchase.ButtonUI.buttonUI.onButtonPress -= UpdateBuyText;
+            producer.onUpdateTextEvent -= UpdateAllUI;
         }
     }
 }
