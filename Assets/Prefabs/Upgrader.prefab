@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 90.9}
+  m_SizeDelta: {x: 0, y: -76.12085}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &698713733038047629
 CanvasRenderer:
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -80,11 +80,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Upgrade
 
-    Producer
-
-    1234 bignumber
-
-    Tokens'
+    1234 Tokens'
 --- !u!1 &7998175828817384646
 GameObject:
   m_ObjectHideFlags: 0
