@@ -91,7 +91,7 @@ public class PlayerHandler : MonoBehaviour {
 
     private bool HasCastlesRequired()
     {
-        if (castleReference.NumberOwned < Fib(PlayerLevel+3))
+        if (castleReference.NumberOwned < Fib(PlayerLevel+2))
         {
             return false;
         }
@@ -101,9 +101,10 @@ public class PlayerHandler : MonoBehaviour {
     
     private int Fib(int aIndex)
     {
+        Debug.Log($"player level:{aIndex-2}");
         var n1 = 0;
         var n2 = 1;
-        for(var i = 1; i < aIndex; i++)
+        for(var i = 0; i < aIndex; i++)
         {
             var tmp = n1 + n2;
             n1 = n2;
