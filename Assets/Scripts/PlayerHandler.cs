@@ -29,8 +29,6 @@ public class PlayerHandler : MonoBehaviour {
         if (ascending) return;
         
         //0. check if user has enuff resources to ascend
-        //TODO change requirements to castles
-        Debug.Log($"number castles owned{castleReference.NumberOwned}");
         if (!HasCastlesRequired())
         {
             return;
@@ -119,7 +117,6 @@ public class PlayerHandler : MonoBehaviour {
     }
     private void FixedUpdate()
     {
-        //TODO change resourcesRequired to match GDD requirements for ascend
         ascendButton.image.color = HasCastlesRequired() ? Color.green : Color.red;
     }
 
@@ -135,7 +132,6 @@ public class PlayerHandler : MonoBehaviour {
         
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
-        ascendButton.image.color = Color.red;
         castlesNeeded.text = $"Needed: {Fib(PlayerLevel + 2)}";
     }
 }
