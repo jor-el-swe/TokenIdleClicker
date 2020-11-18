@@ -22,20 +22,23 @@ namespace ResourceProduction {
             data = producer.Data;
             data = producer.Data;
             BulkPurchase.ButtonUI.buttonUI.onButtonPress += UpdateBuyText;
-            producer.onUpdateTextEvent += UpdateBuyText;
+            producer.onUpdateTextEvent += UpdateAllUI;
             StartCoroutine(OnUpdateUI());
         }
         private void OnDestroy() {
             BulkPurchase.ButtonUI.buttonUI.onButtonPress -= UpdateBuyText;
-            producer.onUpdateTextEvent -= UpdateBuyText;
+            producer.onUpdateTextEvent -= UpdateAllUI;
         }
         private IEnumerator OnUpdateUI() {
             while (true) {
-                UpdateOwnedText();
-                UpdateShopIcon();
-                UpdateBuyText();
+                UpdateAllUI();
                 yield return new WaitForSeconds(1);
             }
+        }
+        private void UpdateAllUI() {
+            UpdateBuyText();
+            UpdateOwnedText();
+            UpdateShopIcon();
         }
         private void UpdateOwnedText() {
             numberOwnedText.text = producer.NumberOwned.ToString();
