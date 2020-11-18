@@ -4,6 +4,7 @@ namespace Castle {
     public class Castle : MonoBehaviour {
         [SerializeField] private Data data;
         public Data Data => data;
+        private CastleUI UI => GetComponent<CastleUI>();
         private string OwnedKey => $"{data.name}_owned";
         public int NumberOwned {
             get => PlayerPrefs.GetInt(OwnedKey, 0);
@@ -15,6 +16,7 @@ namespace Castle {
                 return;
             data.Resource.CurrentAmount -= castlePrice;
             NumberOwned++;
+            UI.EnableRandomCastleIcon();
         }
     }
 }

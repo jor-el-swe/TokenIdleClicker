@@ -6,6 +6,6 @@ public class CheatForTest : MonoBehaviour
 
     public void Cheat()
     {
-        resource.CurrentAmount += 1000000000ul;
+        resource.CurrentAmount += 10000000000ul;
     }
 }
