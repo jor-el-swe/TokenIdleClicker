@@ -58,15 +58,22 @@ public class PlayerHandler : MonoBehaviour {
         if (clickedNo)
         {
             upgradeText.text = "Ascend";
+            yesButton.gameObject.SetActive(false);
+            noButton.gameObject.SetActive(false);
             ascending = false;
             yield break;
         }
+        //don't click more buttons, and level up
         yesButton.interactable = false;
         noButton.interactable = false;
         upgradeText.text = "leveling up!";
+        
+        //music and sfx
         audiohandler.Play("newLevel");
+        audiohandler.StopMusic();
         yield return new WaitForSeconds(5);
         audiohandler.PlayMusic();
+        
         //2. load players current level in local variable 
         PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 1);
 

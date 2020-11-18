@@ -18,6 +18,7 @@ public class AudioHandler: MonoBehaviour
 
     private static bool musicMuted;
 
+    
     public void MuteAllSounds()
     {
         if (AudioListener.pause)
@@ -118,15 +119,16 @@ public class AudioHandler: MonoBehaviour
             sound.audioSource.volume = sound.volume;
             sound.audioSource.pitch = sound.pitch;
             sound.audioSource.loop = sound.loop;
+            sound.audioSource.outputAudioMixerGroup = sound.outputMixerGroup;
             sound.audioSource.playOnAwake = false;
         }
     }
     
     private void Start()
     {
-        Debug.Log("playing first song");
-        Play("Level1SongDemo");
         
+        Debug.Log("playing first song");
+        Play("mainTheme");
         
         muteSoundsText.text = "Mute All Sounds";
         muteMusicText.text = "Mute Music";

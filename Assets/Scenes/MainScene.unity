@@ -163,7 +163,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21341474}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5901537071083657185, guid: 127d8d6383ff6d24e8f3d058c575bf28,
     type: 2}
@@ -272,36 +272,55 @@ MonoBehaviour:
     volume: 0.061
     pitch: 2.54
     loop: 0
+    outputMixerGroup: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28,
+      type: 2}
     audioSource: {fileID: 0}
   - soundName: newLevel
     clip: {fileID: 8300000, guid: 66229c5d4c907154fa7bb72b3a7c2f22, type: 3}
     volume: 0.566
     pitch: 1
     loop: 0
+    outputMixerGroup: {fileID: 0}
     audioSource: {fileID: 0}
   - soundName: newScreen
     clip: {fileID: 8300000, guid: 83529706d62f422459b27c2767d7ac28, type: 3}
     volume: 0.337
     pitch: 1
     loop: 0
+    outputMixerGroup: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28,
+      type: 2}
     audioSource: {fileID: 0}
   - soundName: nono
     clip: {fileID: 8300000, guid: fd002107baf786b40a7701d387456e45, type: 3}
     volume: 0.265
     pitch: 1
     loop: 0
+    outputMixerGroup: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28,
+      type: 2}
     audioSource: {fileID: 0}
   - soundName: placeStore
     clip: {fileID: 8300000, guid: a58aa502a498ff44a9a78668fd1ad789, type: 3}
     volume: 0.471
     pitch: 1
     loop: 0
+    outputMixerGroup: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28,
+      type: 2}
     audioSource: {fileID: 0}
   - soundName: upgraded
     clip: {fileID: 8300000, guid: c93297f6a7f0eac4d8af42cabeb53fa1, type: 3}
     volume: 0.307
     pitch: 1
     loop: 0
+    outputMixerGroup: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28,
+      type: 2}
+    audioSource: {fileID: 0}
+  - soundName: mainTheme
+    clip: {fileID: 8300000, guid: 863c4f42a5aec0d48a833ea00340a2f5, type: 3}
+    volume: 0.307
+    pitch: 1
+    loop: 0
+    outputMixerGroup: {fileID: 5901537071083657185, guid: 127d8d6383ff6d24e8f3d058c575bf28,
+      type: 2}
     audioSource: {fileID: 0}
   music: {fileID: 5901537071083657185, guid: 127d8d6383ff6d24e8f3d058c575bf28, type: 2}
   sfx: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28, type: 2}
@@ -5421,11 +5440,6 @@ PrefabInstance:
       propertyPath: muteSoundsText
       value: 
       objectReference: {fileID: 1106668161}
-    - target: {fileID: 7059785090463176382, guid: 1c51255cb466c9d49a77a7c181ff26c0,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8368339788308027510, guid: 1c51255cb466c9d49a77a7c181ff26c0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -5656,8 +5670,7 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -23.870003
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7059785090463176382, guid: 1c51255cb466c9d49a77a7c181ff26c0, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c51255cb466c9d49a77a7c181ff26c0, type: 3}
 --- !u!224 &932307752 stripped
 RectTransform:
