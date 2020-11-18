@@ -3029,7 +3029,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 535690364}
         m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
-        m_MethodName: MuteMusic
+        m_MethodName: ToggleMusic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5474,7 +5474,7 @@ PrefabInstance:
     - target: {fileID: 8368339788308027510, guid: 1c51255cb466c9d49a77a7c181ff26c0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: MuteMusic
+      value: StopMusic
       objectReference: {fileID: 0}
     - target: {fileID: 8368339788308027510, guid: 1c51255cb466c9d49a77a7c181ff26c0,
         type: 3}

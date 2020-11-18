@@ -32,7 +32,7 @@ public class AudioHandler: MonoBehaviour
         }
     }
 
-    public void MuteMusic()
+    public void ToggleMusic()
     {
         if (!musicMuted)
         {
@@ -47,5 +47,15 @@ public class AudioHandler: MonoBehaviour
             musicMuted = false;
         }
 
+    }
+
+    public void PlayMusic()
+    {
+        music.audioMixer.SetFloat("musicVol", 0);
+    }
+
+    public void StopMusic()
+    {
+        music.audioMixer.SetFloat("musicVol", -80);
     }
 }

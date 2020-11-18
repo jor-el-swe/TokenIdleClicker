@@ -68,7 +68,7 @@ public class PlayerHandler : MonoBehaviour {
         upgradeText.text = "leveling up!";
         
         yield return new WaitForSeconds(5);
-        audiohandler.MuteMusic();
+        audiohandler.PlayMusic();
         //2. load players current level in local variable 
         PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 1);
 
