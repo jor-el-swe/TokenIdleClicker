@@ -14,6 +14,8 @@ namespace ResourceProduction {
         [SerializeField] private float producedAmountMultiplier = 3f;
         [SerializeField] private int price;
         [SerializeField] private float priceMultiplier;
+        [SerializeField] private ulong firstUpgradePrice;
+        [SerializeField] private ulong secondUpgradePrice;
         [SerializeField] private int levelUpgradePrice;
         [SerializeField] private float levelUpgradePriceMultiplier;
         [SerializeField] private ulong autoClickerPrice;
@@ -21,6 +23,8 @@ namespace ResourceProduction {
         public int Level { get; set; }
         public Resource.Resource Resource => resource;
         private string AutoClickerKey => $"{name}_autoClicker";
+        public ulong FirstUpgradePrice => firstUpgradePrice;
+        public ulong SecondUpgradePrice => secondUpgradePrice;
         public ulong AutoClickerPrice => autoClickerPrice;
         public bool AutoClickerActive => AutoClicker == 1;
         public int AutoClicker {

@@ -21,6 +21,8 @@ MonoBehaviour:
   producedAmountMultiplier: 3
   price: 62208
   priceMultiplier: 1.12
+  firstUpgradePrice: 10000000
+  secondUpgradePrice: 10000000000
   levelUpgradePrice: 10000000
   levelUpgradePriceMultiplier: 1000
   autoClickerPrice: 6322490
