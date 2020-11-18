@@ -14,13 +14,12 @@ public class PlayerHandler : MonoBehaviour {
     [SerializeField] private Button yesButton;
     [SerializeField] private Button noButton;
     [SerializeField] private Button ascendButton;
+    [SerializeField] private Castle.Castle castleReference;
     
     public static int PlayerLevel { get; private set; }
-
     private bool clickedYes, clickedNo, ascending;
     private static string PlayerLevelKey => "Player_level";
 
-    
     public void Ascend()
     {
         //don't run again if we are already waiting for an answer
@@ -28,7 +27,8 @@ public class PlayerHandler : MonoBehaviour {
         
         //0. check if user has enuff resources to ascend
         //TODO change requirements to castles
-        if (resource.CurrentAmount < resourcesRequired)
+        Debug.Log($"number castles owned{castleReference.NumberOwned}");
+        if (!HasCastlesRequired())
         {
             return;
         }
@@ -89,10 +89,33 @@ public class PlayerHandler : MonoBehaviour {
         clickedNo = true;
     }
 
+    private bool HasCastlesRequired()
+    {
+        if (castleReference.NumberOwned < Fib(PlayerLevel+3))
+        {
+            return false;
+        }
+
+        return true;
+    }
+    
+    private static int Fib(int aIndex)
+    {
+        var n1 = 0;
+        var n2 = 1;
+        for(var i = 1; i < aIndex; i++)
+        {
+            var tmp = n1 + n2;
+            n1 = n2;
+            n2 = tmp;
+        }
+        Debug.Log($"castles required:{n1}");
+        return n1;
+    }
     private void FixedUpdate()
     {
         //TODO change resourcesRequired to match GDD requirements for ascend
-        ascendButton.image.color = resource.CurrentAmount < resourcesRequired ? Color.red : Color.green;
+        ascendButton.image.color = HasCastlesRequired() ? Color.green : Color.red;
     }
 
     private void Start()
