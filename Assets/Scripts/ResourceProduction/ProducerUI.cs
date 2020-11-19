@@ -11,8 +11,6 @@ namespace ResourceProduction {
         [SerializeField] private Text numberOwnedText;
         [SerializeField] private Image shopIcon;
         [SerializeField] private Button produceButton;
-        //[SerializeField] private Button buyButton;
-        
         [SerializeField] private Animator buyButtonAnim;
 
         private Data data;
@@ -76,7 +74,6 @@ namespace ResourceProduction {
                 buyButtonAnim.SetBool("IsDisabled", false);
             } 
             else {
-                
                 buyButtonAnim.SetBool("IsDisabled", true);
             }
         }

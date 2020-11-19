@@ -7,11 +7,9 @@ namespace ResourceProduction {
         public static event System.Action onUpdateTextEvent;
         private float timer;
         private bool isProducing;
-        
         private AudioHandler audiohandler;
-
+        
         [SerializeField] private Data data;
-        [SerializeField] private GameObject produceButton;
         [SerializeField] private ProgressBar progressBar;
         [SerializeField] private Transform popupTextSpawnPoint;
         [SerializeField] private Castle.Data castleData;
@@ -46,9 +44,6 @@ namespace ResourceProduction {
                 onUpdateTextEvent();
         }
         private void Update() {
-            // Disables produceButton when AutoClicker is active and vice versa + checks if you own at least 1 producer
-            //produceButton.SetActive(!data.AutoClickerActive && NumberOwned > 0);
-
             if (data.AutoClickerActive || isProducing) {
                 Produce();
             }
@@ -79,9 +74,11 @@ namespace ResourceProduction {
 
         private void InstantiatePopupText() {
             var instance = Instantiate(popupTextPrefab, this.popupTextSpawnPoint.transform);
-            instance.GetComponent<Text>().text = $@"+{data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * 
-                                                     (ulong)(1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel)}";
-            instance.GetComponent<Text>().color = data.Resource.resourceColor;
+            var producedAmount = data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned *
+                                 (ulong) (1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel);
+            var text = instance.GetComponent<Text>();
+            text.text = SuffixHelper.GetString(producedAmount, false);
+            text.color = data.Resource.resourceColor;
         }
     }
 }

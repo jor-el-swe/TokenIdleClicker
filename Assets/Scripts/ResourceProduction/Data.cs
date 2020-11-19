@@ -4,7 +4,6 @@ using UnityEngine.Serialization;
 namespace ResourceProduction {
     [CreateAssetMenu(fileName = "ProductionData", menuName = "ScriptableObjects/ProductionData")]
     public class Data : ScriptableObject {
-
         [SerializeField] private Resource.Resource resource;
         [SerializeField] private float productionTime;
         [SerializeField] private float productionTimeMultiplier;
@@ -35,10 +34,11 @@ namespace ResourceProduction {
                 PlayerPrefs.SetInt(AutoClickerKey, value);
             }
         }
-
+        
         public ulong GetActualPrice(int numberGenerators) {
             return (ulong) (price * Mathf.Pow(priceMultiplier, numberGenerators));
         }
+        
         public(ulong, int) GetActualBulkPrice(int numberGenerators) {
             int amount;
             if (BulkPurchase.Data.BuyAmount > 100) {
@@ -50,10 +50,11 @@ namespace ResourceProduction {
             }
             return (GetPrice(numberGenerators, amount), amount);
         }
+        
         public ulong GetActualProductionAmount(int generatorLevel) {
             return (ulong) (productionAmount * Mathf.Pow(producedAmountMultiplier, generatorLevel));
         }
-
+        
         public int GetThresholdLevel(int numberOwned) {
             var thresholdLevel = increaseSpeedThresholds.Length;
             for (var i = 0; i < thresholdLevel; i++) {
@@ -63,7 +64,7 @@ namespace ResourceProduction {
             }
             return thresholdLevel;
         }
-
+        
         public float GetActualProductionTime(int numberOwned) {
             var thresholdLevel = GetThresholdLevel(numberOwned);
             var actualProductionTime = productionTime * Mathf.Pow(productionTimeMultiplier, thresholdLevel);
@@ -73,7 +74,8 @@ namespace ResourceProduction {
         }
         
         private ulong GetPrice(int numberGenerators, int amount) {
-            return (ulong) (price * (Mathf.Pow(priceMultiplier, numberGenerators) * ((Mathf.Pow(priceMultiplier, amount) - 1)) / (priceMultiplier - 1)));
+            return (ulong) (price * (Mathf.Pow(priceMultiplier, numberGenerators) * 
+                (Mathf.Pow(priceMultiplier, amount) - 1) / (priceMultiplier - 1)));
         }
     }
 }
