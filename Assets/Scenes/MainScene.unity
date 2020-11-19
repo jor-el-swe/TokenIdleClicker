@@ -1496,7 +1496,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303189114}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -6684,6 +6684,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1071918644 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 239867511, guid: aa914218f0ed0d34f9442589336cdd38,
+    type: 3}
+  m_PrefabInstance: {fileID: 3676098476321302206}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1078124330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7384,6 +7390,18 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1193109099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7365178622036130426, guid: aa914218f0ed0d34f9442589336cdd38,
+    type: 3}
+  m_PrefabInstance: {fileID: 3676098476321302206}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84f95fc861dfd49f4bfc0981c5353cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1199151698
@@ -15224,6 +15242,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 303189118}
     m_Modifications:
+    - target: {fileID: 239867511, guid: aa914218f0ed0d34f9442589336cdd38, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2820437631380861234, guid: aa914218f0ed0d34f9442589336cdd38,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -15491,6 +15513,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4873641672619502730, guid: aa914218f0ed0d34f9442589336cdd38,
         type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873641672619502730, guid: aa914218f0ed0d34f9442589336cdd38,
+        type: 3}
       propertyPath: m_AnimationTriggers.m_SelectedTrigger
       value: Selected
       objectReference: {fileID: 0}
@@ -15498,6 +15525,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnimationTriggers.m_HighlightedTrigger
       value: Highlighted
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873641672619502730, guid: aa914218f0ed0d34f9442589336cdd38,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873641672619502730, guid: aa914218f0ed0d34f9442589336cdd38,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873641672619502730, guid: aa914218f0ed0d34f9442589336cdd38,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1193109099}
+    - target: {fileID: 4873641672619502730, guid: aa914218f0ed0d34f9442589336cdd38,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873641672619502730, guid: aa914218f0ed0d34f9442589336cdd38,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UpdateOnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873641672619502730, guid: aa914218f0ed0d34f9442589336cdd38,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ResourceProduction.ProducerUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873641672619502730, guid: aa914218f0ed0d34f9442589336cdd38,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4873641672886663296, guid: aa914218f0ed0d34f9442589336cdd38,
         type: 3}
@@ -15614,6 +15676,11 @@ PrefabInstance:
       propertyPath: buyButton
       value: 
       objectReference: {fileID: 553285991}
+    - target: {fileID: 7365178622036130426, guid: aa914218f0ed0d34f9442589336cdd38,
+        type: 3}
+      propertyPath: buyButtonAnim
+      value: 
+      objectReference: {fileID: 1071918644}
     - target: {fileID: 7365178622036130426, guid: aa914218f0ed0d34f9442589336cdd38,
         type: 3}
       propertyPath: produceButton
