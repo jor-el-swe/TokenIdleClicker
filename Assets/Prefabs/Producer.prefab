@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.33708617, g: 0.7075472, b: 0.35459745, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1002,7 +1002,7 @@ MonoBehaviour:
   numberOwnedText: {fileID: 2497441876353651030}
   shopIcon: {fileID: 0}
   produceButton: {fileID: 0}
-  buyButton: {fileID: 0}
+  buyButtonAnim: {fileID: 0}
 --- !u!1 &6699695450754324914
 GameObject:
   m_ObjectHideFlags: 0
