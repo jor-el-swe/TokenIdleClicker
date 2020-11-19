@@ -23,7 +23,6 @@ namespace ResourceProduction {
         }
         private void Start() {
             data = producer.Data;
-            data = producer.Data;
             BulkPurchase.ButtonUI.buttonUI.onButtonPress += UpdateBuyText;
             Producer.onUpdateTextEvent += UpdateAllUI;
             StartCoroutine(OnUpdateUI());
@@ -54,7 +53,7 @@ namespace ResourceProduction {
             (ulong cost, int amount) = data.GetActualBulkPrice(producer.NumberOwned);
             buyText.text = $"Buy {amount}:\n {SuffixHelper.GetString(cost)} Tokens ";
             if (buyButtonAnim != null)
-                DisableBuyButton(cost);
+                UpdateBuyAnim(cost);
         }
         private void UpdateShopIcon() {
             shopIcon.enabled = producer.NumberOwned > 0;
@@ -70,13 +69,13 @@ namespace ResourceProduction {
                 produceButton.interactable = false;
             }
         }
-        private void DisableBuyButton(ulong cost) {
+        private void UpdateBuyAnim(ulong cost) {
             if (data.Resource.CurrentAmount >= cost) {
-                buyButtonAnim.SetTrigger("Normal");
+                buyButtonAnim.SetBool("IsDisabled", false);
             } 
             else {
                 
-                buyButtonAnim.SetTrigger("Disabled");
+                buyButtonAnim.SetBool("IsDisabled", true);
             }
         }
     }
