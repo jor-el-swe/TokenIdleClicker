@@ -594,7 +594,8 @@ PrefabInstance:
         type: 3}
       propertyPath: buyButtonAnim
       value: 
-      objectReference: {fileID: 1478107377}
+      objectReference: {fileID: 1478107377, guid: aa914218f0ed0d34f9442589336cdd38,
+        type: 3}
     - target: {fileID: -3084263185761209483, guid: 253a75200b946624da49a0a408d3eb4b,
         type: 3}
       propertyPath: produceButton
@@ -603,7 +604,7 @@ PrefabInstance:
     - target: {fileID: 1450182184432924733, guid: 253a75200b946624da49a0a408d3eb4b,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1748638223466794344, guid: 253a75200b946624da49a0a408d3eb4b,
         type: 3}
@@ -651,6 +652,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Army Producer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524106822972769565, guid: 253a75200b946624da49a0a408d3eb4b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6699695450754324924, guid: 253a75200b946624da49a0a408d3eb4b,
         type: 3}
@@ -1365,13 +1371,13 @@ PrefabInstance:
     - target: {fileID: 7283881092820187142, guid: 253a75200b946624da49a0a408d3eb4b,
         type: 3}
       propertyPath: m_Type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7283881092820187142, guid: 253a75200b946624da49a0a408d3eb4b,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 8117324164104611205, guid: 253a75200b946624da49a0a408d3eb4b,
         type: 3}
       propertyPath: m_Transition
