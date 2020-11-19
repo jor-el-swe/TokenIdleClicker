@@ -12,6 +12,7 @@ namespace Castle {
         [SerializeField] private Text buyText;
         [SerializeField] private Text numberOwnedText;
         [SerializeField] private Image[] castleIcons;
+        [SerializeField] private Image buyButton;
         
 
         private Data data;
@@ -42,6 +43,7 @@ namespace Castle {
         private void FixedUpdate() {
             UpdateOwnedText();
             UpdateBuyText();
+            buyButton.color = Castle.CanBuy ? Color.white : Color.red;
         }
         
         private void SaveUsedNumbers() {

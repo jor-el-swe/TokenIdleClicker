@@ -370,6 +370,7 @@ MonoBehaviour:
   buyText: {fileID: 6113738058783998782}
   numberOwnedText: {fileID: 2497441876353651030}
   castleIcons: []
+  buyButton: {fileID: 1748638223466794344}
 --- !u!114 &7283881092820187142
 MonoBehaviour:
   m_ObjectHideFlags: 0

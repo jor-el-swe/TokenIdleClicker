@@ -136,7 +136,7 @@ public class PlayerHandler : MonoBehaviour {
         //init ascending logics and UI 
         ascending = false;
         PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 0);
-        playerLevelText.text = $"Player Level:{PlayerLevel}";
+        playerLevelText.text = $"Level: {PlayerLevel}";
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
         castlesNeeded.text = $"Needed: {Fib(PlayerLevel + 3)}";
