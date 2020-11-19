@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace ResourceProduction {
@@ -11,7 +9,6 @@ namespace ResourceProduction {
         [SerializeField] private Image[] images;
 
         private AudioHandler audiohandler;
-        private Button BuyButton => GetComponent<Button>();
         private string LevelKey => $"{data.name}_upgradeLevel";
         private int Level {
             get => PlayerPrefs.GetInt(LevelKey, 0);
