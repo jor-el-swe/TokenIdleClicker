@@ -487,7 +487,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303189114}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -1705,7 +1705,7 @@ PrefabInstance:
         type: 3}
       propertyPath: muteSoundsText
       value: 
-      objectReference: {fileID: 1106668161}
+      objectReference: {fileID: 0}
     - target: {fileID: 8368339788308027510, guid: 1c51255cb466c9d49a77a7c181ff26c0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2041,18 +2041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1106668161 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1510475330879877079, guid: 22977d8452b3e73448190b1a3b64f66c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1510475331950314838}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1116448616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2380,7 +2368,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327600321}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -2561,6 +2549,18 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1347971218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6588048831573776706, guid: 22977d8452b3e73448190b1a3b64f66c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1510475331950314838}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1348351856
@@ -4887,7 +4887,7 @@ PrefabInstance:
         type: 3}
       propertyPath: muteSoundsText
       value: 
-      objectReference: {fileID: 1106668161}
+      objectReference: {fileID: 1347971218}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b3b84c89ee230a4583e7e39872ac085, type: 3}
 --- !u!224 &7156948180869606269 stripped
@@ -5373,7 +5373,7 @@ PrefabInstance:
         type: 3}
       propertyPath: muteSoundsText
       value: 
-      objectReference: {fileID: 1106668161}
+      objectReference: {fileID: 0}
     - target: {fileID: 7745985032400765015, guid: 153a17ee6640fd24b88c3a0c87acf1d3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

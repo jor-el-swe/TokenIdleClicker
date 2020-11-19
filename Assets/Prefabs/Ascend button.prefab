@@ -294,7 +294,6 @@ GameObject:
   - component: {fileID: 8368339788308027504}
   - component: {fileID: 8368339788308027508}
   - component: {fileID: 8368339788308027510}
-  - component: {fileID: 1620336241632055046}
   - component: {fileID: 6902845054874777576}
   m_Layer: 5
   m_Name: YesButton
@@ -371,7 +370,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 6902845054874777576}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -387,24 +386,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1620336241632055046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8368339788308027505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c51c1244d31935647989ee026f80a88c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeTime: 2
-  sounds: []
-  music: {fileID: 5901537071083657185, guid: 127d8d6383ff6d24e8f3d058c575bf28, type: 2}
-  sfx: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28, type: 2}
-  muteSoundsText: {fileID: 0}
-  muteMusicText: {fileID: 0}
 --- !u!114 &6902845054874777576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,7 +645,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingStore: {fileID: 11400000, guid: e72fb0be66d45bc4f885a549030e0f72, type: 2}
   resource: {fileID: 11400000, guid: 95b6a74f40d2a4fbcb4e75fe637b530f, type: 2}
-  resourcesRequired: 100
   upgradeText: {fileID: 8368339788353225860}
   playerLevelText: {fileID: 8368339789102599436}
   yesButton: {fileID: 8368339788308027510}
@@ -672,6 +652,7 @@ MonoBehaviour:
   ascendButton: {fileID: 8368339788427753547}
   castleReference: {fileID: 0}
   castlesNeeded: {fileID: 0}
+  audiohandler: {fileID: 0}
 --- !u!1 &8368339789043157162
 GameObject:
   m_ObjectHideFlags: 0
