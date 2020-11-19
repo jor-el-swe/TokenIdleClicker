@@ -14,6 +14,7 @@ public class PlayerHandler : MonoBehaviour {
     [SerializeField] private Castle.Castle castleReference;
     [SerializeField] private Text castlesNeeded;
     [SerializeField] private AudioHandler audiohandler;
+    [SerializeField] private Text ascendText;
     public static int PlayerLevel { get; private set; }
     private bool clickedYes, clickedNo, ascending;
     private static string PlayerLevelKey => "Player_level";
@@ -47,6 +48,7 @@ public class PlayerHandler : MonoBehaviour {
         yesButton.gameObject.SetActive(true);
         noButton.gameObject.SetActive(true);
         upgradeText.text = "really?!";
+        ascendText.text = $"Resets the game with a permanent {castleReference.Data.AscensionBonus * 100}% bonus to production";
         
         //1.5 implement yes/no logic
         //Wait for the button to be pressed
@@ -60,6 +62,7 @@ public class PlayerHandler : MonoBehaviour {
             upgradeText.text = "Ascend";
             yesButton.gameObject.SetActive(false);
             noButton.gameObject.SetActive(false);
+            ascendText.text = "";
             ascending = false;
             yield break;
         }
@@ -137,6 +140,7 @@ public class PlayerHandler : MonoBehaviour {
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
         castlesNeeded.text = $"Needed: {Fib(PlayerLevel + 3)}";
+        ascendText.text = "";
         
         var basePrice = startingStore.GetActualPrice(0);
         if (resource.CurrentAmount < basePrice)

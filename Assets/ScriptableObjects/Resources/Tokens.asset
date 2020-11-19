@@ -12,4 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98ed99784302465ba2d2b2c198b6f4f, type: 3}
   m_Name: Tokens
   m_EditorClassIdentifier: 
-  resourceColor: {r: 0.3018868, g: 0.29344955, b: 0.23780705, a: 1}
