@@ -7,11 +7,12 @@ using Random = UnityEngine.Random;
 namespace Castle {
     public class CastleUI : MonoBehaviour {
         private string castleIconKey = "castleIcon_";
+        private List<Image> activatedIcons = new List<Image>();
+        private List<int> usedNumbers = new List<int>();
         [SerializeField] private Text buyText;
         [SerializeField] private Text numberOwnedText;
         [SerializeField] private Image[] castleIcons;
-        [SerializeField] private List<Image> activatedIcons = new List<Image>();
-        [SerializeField] private List<int> usedNumbers = new List<int>();
+        
 
         private Data data;
         private Castle Castle => GetComponent<Castle>();
@@ -64,7 +65,7 @@ namespace Castle {
         }
         
         private void UpdateBuyText() {
-            buyText.text = $"Buy Castle\n {SuffixHelper.GetString(data.GetActualPrice(Castle.NumberOwned), false)} Tokens";
+            buyText.text = $"{SuffixHelper.GetString(data.GetActualPrice(Castle.NumberOwned), false)}";
         }
     }
 }
