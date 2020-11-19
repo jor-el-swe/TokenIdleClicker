@@ -9,6 +9,7 @@ namespace ResourceProduction {
         [SerializeField] private string textPrefix = "Auto Clicker";
         [SerializeField] private Text buyText;
 
+        private AudioHandler audiohandler;
         private Button BuyButton => GetComponent<Button>();
         private Image Image => GetComponent<Image>();
         private string IsPurchasedKey => $"{name}_PurchaseStatus";
@@ -24,22 +25,25 @@ namespace ResourceProduction {
 
         public void Buy() {
             if (priceResource.CurrentAmount < data.AutoClickerPrice)
+            {
+                audiohandler.Play("nono");
                 return;
+            }
+            audiohandler.Play("buyStore");
             priceResource.CurrentAmount -= data.AutoClickerPrice;
             IsPurchasedStatus = 1;
             ActivateAutoClicker();
         }
         
         private void Start() {
+            //get audioHandler
+            audiohandler = FindObjectOfType<AudioHandler>();
+            
             if (IsPurchased) {
                 ActivateAutoClicker();
             } else {
                 buyText.text = $"{data.name}\n{textPrefix}\n{SuffixHelper.GetString(data.AutoClickerPrice)}";
             }
-        }
-
-        private void FixedUpdate() {
-            BuyButton.interactable = priceResource.CurrentAmount >= data.AutoClickerPrice;
         }
 
         private void ActivateAutoClicker() {
