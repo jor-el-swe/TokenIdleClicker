@@ -63,7 +63,9 @@ namespace ResourceProduction {
             if (data.Resource.CurrentAmount >= cost) {
                 buyButton.interactable = true;
             } else {
-                buyButton.interactable = false;
+                //buyButton.interactable = false;
+                //TODO check with Henrik how to solve this. I need to push the button to play "nono" sound.
+                buyButton.image.color = Color.red;
             }
         }
     }

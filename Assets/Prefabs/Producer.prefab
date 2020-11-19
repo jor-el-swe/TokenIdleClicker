@@ -639,7 +639,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1804228970762234499}
-        m_TargetAssemblyTypeName: Resource_Generation.Generator, Assembly-CSharp
+        m_TargetAssemblyTypeName: ResourceProduction.Producer, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -650,18 +650,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
 --- !u!1 &2908689504926607879
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,6 +922,8 @@ MonoBehaviour:
   productionTimeText: {fileID: 6275738082616185090}
   numberOwnedText: {fileID: 2497441876353651030}
   shopIcon: {fileID: 0}
+  produceButton: {fileID: 0}
+  buyButton: {fileID: 0}
 --- !u!1 &6524417794119592800
 GameObject:
   m_ObjectHideFlags: 0
