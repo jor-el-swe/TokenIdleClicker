@@ -201,7 +201,7 @@ MonoBehaviour:
       type: 2}
     audioSource: {fileID: 0}
   - soundName: buyStore
-    clip: {fileID: 8300000, guid: a58aa502a498ff44a9a78668fd1ad789, type: 3}
+    clip: {fileID: 8300000, guid: 093516d0fcdc67b4d8cf4c8138862b9b, type: 3}
     volume: 0.301
     pitch: 1
     loop: 0
