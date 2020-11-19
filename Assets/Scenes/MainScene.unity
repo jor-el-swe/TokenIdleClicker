@@ -200,9 +200,9 @@ MonoBehaviour:
     outputMixerGroup: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28,
       type: 2}
     audioSource: {fileID: 0}
-  - soundName: placeStore
+  - soundName: buyStore
     clip: {fileID: 8300000, guid: a58aa502a498ff44a9a78668fd1ad789, type: 3}
-    volume: 0.471
+    volume: 0.301
     pitch: 1
     loop: 0
     outputMixerGroup: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28,

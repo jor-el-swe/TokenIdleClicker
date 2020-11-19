@@ -28,7 +28,7 @@ namespace ResourceProduction {
                 audiohandler.Play("nono");
                 return;
             }
-            audiohandler.Play("click");
+            audiohandler.Play("buyStore");
             data.Resource.CurrentAmount -= cost;
             NumberOwned += buyAmount;
             UpdateTextEvent();
