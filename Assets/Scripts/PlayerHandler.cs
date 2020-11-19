@@ -81,7 +81,7 @@ public class PlayerHandler : MonoBehaviour {
             audiohandler.PlayMusic();
         
         //2. load players current level in local variable 
-        PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 1);
+        PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 0);
 
         //3. zap all playerprefs
         PlayerPrefs.DeleteAll();
@@ -108,7 +108,7 @@ public class PlayerHandler : MonoBehaviour {
 
     private bool HasCastlesRequired()
     {
-        if (castleReference.NumberOwned < Fib(PlayerLevel+2))
+        if (castleReference.NumberOwned < Fib(PlayerLevel+3))
         {
             return false;
         }
@@ -140,11 +140,11 @@ public class PlayerHandler : MonoBehaviour {
         
         //init ascending logics and UI 
         ascending = false;
-        PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 1);
+        PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 0);
         playerLevelText.text = $"Player Level:{PlayerLevel}";
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
-        castlesNeeded.text = $"Needed: {Fib(PlayerLevel + 2)}";
+        castlesNeeded.text = $"Needed: {Fib(PlayerLevel + 3)}";
         
         var basePrice = startingStore.GetActualPrice(0);
         if (resource.CurrentAmount < basePrice)
