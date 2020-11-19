@@ -9,6 +9,8 @@ namespace ResourceProduction {
         [SerializeField] private Text productionTimeText;
         [SerializeField] private Text numberOwnedText;
         [SerializeField] private Image shopIcon;
+        [SerializeField] private Button produceButton;
+        [SerializeField] private Button buyButton;
         private Data data;
         private Producer producer => GetComponent<Producer>();
         private void Start() {
@@ -17,10 +19,14 @@ namespace ResourceProduction {
             BulkPurchase.ButtonUI.buttonUI.onButtonPress += UpdateBuyText;
             Producer.onUpdateTextEvent += UpdateAllUI;
             StartCoroutine(OnUpdateUI());
+            if (produceButton != null)
+                DisableProduceButton();
         }
         private IEnumerator OnUpdateUI() {
             while (true) {
                 UpdateAllUI();
+                if (produceButton != null)
+                    DisableProduceButton();
                 yield return new WaitForSeconds(1);
             }
         }
@@ -36,6 +42,8 @@ namespace ResourceProduction {
         private void UpdateBuyText() {
             (ulong cost, int amount) = data.GetActualBulkPrice(producer.NumberOwned);
             buyText.text = $"Buy {amount}:\n {SuffixHelper.GetString(cost)} Tokens ";
+            if (buyButton != null)
+                DisableBuyButton(cost);
         }
         private void UpdateShopIcon() {
             shopIcon.enabled = producer.NumberOwned > 0;
@@ -43,6 +51,20 @@ namespace ResourceProduction {
         private void OnDestroy() {
             BulkPurchase.ButtonUI.buttonUI.onButtonPress -= UpdateBuyText;
             Producer.onUpdateTextEvent -= UpdateAllUI;
+        }
+        private void DisableProduceButton() {
+            if (!data.AutoClickerActive && producer.NumberOwned > 0) {
+                produceButton.interactable = true;
+            } else {
+                produceButton.interactable = false;
+            }
+        }
+        private void DisableBuyButton(ulong cost) {
+            if (data.Resource.CurrentAmount >= cost) {
+                buyButton.interactable = true;
+            } else {
+                buyButton.interactable = false;
+            }
         }
     }
 }

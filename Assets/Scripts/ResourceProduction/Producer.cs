@@ -39,7 +39,7 @@ namespace ResourceProduction {
         }
         private void Update() {
             // Disables produceButton when AutoClicker is active and vice versa + checks if you own at least 1 producer
-            produceButton.SetActive(!data.AutoClickerActive && NumberOwned > 0);
+            //produceButton.SetActive(!data.AutoClickerActive && NumberOwned > 0);
 
             if (data.AutoClickerActive || isProducing) {
                 Produce();
@@ -48,10 +48,10 @@ namespace ResourceProduction {
         private void ProduceAtStart() {
             if (!data.AutoClickerActive || ChangeSinceQuit.Data.ElapsedTime < data.GetActualProductionTime(data.Level))
                 return;
-            var produce = data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * 
-                          (ulong) (1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel) * 
-                          (ulong) Mathf.RoundToInt(ChangeSinceQuit.Data.ElapsedTime / data.GetActualProductionTime(NumberOwned));
-            
+            var produce = data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned *
+                (ulong) (1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel) *
+                (ulong) Mathf.RoundToInt(ChangeSinceQuit.Data.ElapsedTime / data.GetActualProductionTime(NumberOwned));
+
             ChangeSinceQuit.Data.ProducedAmount += produce;
             data.Resource.CurrentAmount += produce;
         }
@@ -63,8 +63,8 @@ namespace ResourceProduction {
                 return;
             InstantiatePopupText();
             progressBar.ResetProgressbar();
-            data.Resource.CurrentAmount += data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned * 
-                                           (ulong) (1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel);
+            data.Resource.CurrentAmount += data.GetActualProductionAmount(data.Level) * (ulong) NumberOwned *
+                (ulong) (1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel);
             timer -= productionTime;
             isProducing = false;
         }
