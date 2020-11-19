@@ -15298,6 +15298,26 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.3529412
       objectReference: {fileID: 0}
+    - target: {fileID: 3116571366718655984, guid: aa914218f0ed0d34f9442589336cdd38,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.53333336
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116571366718655984, guid: aa914218f0ed0d34f9442589336cdd38,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.36862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116571366718655984, guid: aa914218f0ed0d34f9442589336cdd38,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.73333335
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116571366718655984, guid: aa914218f0ed0d34f9442589336cdd38,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.3529412
+      objectReference: {fileID: 0}
     - target: {fileID: 3116571366718777556, guid: aa914218f0ed0d34f9442589336cdd38,
         type: 3}
       propertyPath: m_Color.a
