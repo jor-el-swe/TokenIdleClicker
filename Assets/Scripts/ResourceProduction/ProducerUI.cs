@@ -36,8 +36,11 @@ namespace ResourceProduction {
             UpdateShopIcon();
         }
         private void UpdateOwnedText() {
-            numberOwnedText.text = producer.NumberOwned.ToString();
-            productionTimeText.text = data.GetActualProductionTime(producer.NumberOwned).ToString("Production Time: 0.00");
+            var numberOwned = producer.NumberOwned;
+            var thresholdLevel = data.GetThresholdLevel(numberOwned);
+            var currentThreshold = data.IncreaseSpeedThresholds[thresholdLevel];
+            numberOwnedText.text = $"{numberOwned} / {currentThreshold}";
+            productionTimeText.text = data.GetActualProductionTime(numberOwned).ToString("Production Time: 0.00");
         }
         private void UpdateBuyText() {
             (ulong cost, int amount) = data.GetActualBulkPrice(producer.NumberOwned);

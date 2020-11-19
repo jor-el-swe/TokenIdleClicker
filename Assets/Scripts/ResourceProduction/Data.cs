@@ -25,6 +25,8 @@ namespace ResourceProduction {
         public ulong SecondUpgradePrice => secondUpgradePrice;
         public ulong AutoClickerPrice => autoClickerPrice;
         public bool AutoClickerActive => AutoClicker == 1;
+        public int[] IncreaseSpeedThresholds => increaseSpeedThresholds;
+        
         public int AutoClicker {
             get => PlayerPrefs.GetInt(AutoClickerKey, 0);
             set {
@@ -52,18 +54,24 @@ namespace ResourceProduction {
             return (ulong) (productionAmount * Mathf.Pow(producedAmountMultiplier, generatorLevel));
         }
 
-        public float GetActualProductionTime(int numberOwned) {
-            var speedLevel = increaseSpeedThresholds.Length;
-            for (var i = 0; i < speedLevel; i++) {
+        public int GetThresholdLevel(int numberOwned) {
+            var thresholdLevel = increaseSpeedThresholds.Length;
+            for (var i = 0; i < thresholdLevel; i++) {
                 if (numberOwned < increaseSpeedThresholds[i]) {
-                    speedLevel = i;
+                    thresholdLevel = i;
                 }
             }
-            var actualProductionTime = productionTime * Mathf.Pow(productionTimeMultiplier, speedLevel);
+            return thresholdLevel;
+        }
+
+        public float GetActualProductionTime(int numberOwned) {
+            var thresholdLevel = GetThresholdLevel(numberOwned);
+            var actualProductionTime = productionTime * Mathf.Pow(productionTimeMultiplier, thresholdLevel);
             if (actualProductionTime < minimumProductionTime)
                 actualProductionTime = minimumProductionTime;
             return actualProductionTime;
         }
+        
         private ulong GetPrice(int numberGenerators, int amount) {
             return (ulong) (price * (Mathf.Pow(priceMultiplier, numberGenerators) * ((Mathf.Pow(priceMultiplier, amount) - 1)) / (priceMultiplier - 1)));
         }
