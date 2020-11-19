@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHandler : MonoBehaviour {
     [SerializeField] private ResourceProduction.Data startingStore;
-    [SerializeField] private Resource.Resource resource;
-    [SerializeField] private ulong resourcesRequired;
+    [SerializeField] private Resource.Resource resource; 
     [SerializeField] private Text upgradeText;
     [SerializeField] private Text playerLevelText;
     [SerializeField] private Button yesButton;
@@ -17,8 +13,7 @@ public class PlayerHandler : MonoBehaviour {
     [SerializeField] private Button ascendButton;
     [SerializeField] private Castle.Castle castleReference;
     [SerializeField] private Text castlesNeeded;
-
-    private AudioHandler audiohandler;
+    [SerializeField] private AudioHandler audiohandler;
     public static int PlayerLevel { get; private set; }
     private bool clickedYes, clickedNo, ascending;
     private static string PlayerLevelKey => "Player_level";
@@ -135,9 +130,6 @@ public class PlayerHandler : MonoBehaviour {
 
     private void Start()
     {
-        //get audioHandler
-        audiohandler = FindObjectOfType<AudioHandler>();
-        
         //init ascending logics and UI 
         ascending = false;
         PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 0);

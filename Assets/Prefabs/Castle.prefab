@@ -353,6 +353,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: fd3e3d287effa2448bac8d812b7e8c42, type: 2}
+  audiohandler: {fileID: 7099123892909030373, guid: 3b3b84c89ee230a4583e7e39872ac085,
+    type: 3}
 --- !u!114 &4335015811987946807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,8 +370,6 @@ MonoBehaviour:
   buyText: {fileID: 6113738058783998782}
   numberOwnedText: {fileID: 2497441876353651030}
   castleIcons: []
-  activatedIcons: []
-  usedNumbers: 
 --- !u!114 &7283881092820187142
 MonoBehaviour:
   m_ObjectHideFlags: 0

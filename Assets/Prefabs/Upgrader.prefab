@@ -455,6 +455,8 @@ MonoBehaviour:
   - {fileID: 4779941990952070563}
   - {fileID: 687455389507668292}
   - {fileID: 5744610103121285388}
+  audiohandler: {fileID: 7099123892909030373, guid: 3b3b84c89ee230a4583e7e39872ac085,
+    type: 3}
 --- !u!114 &5668371012165295290
 MonoBehaviour:
   m_ObjectHideFlags: 0

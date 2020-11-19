@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace ResourceProduction {
@@ -8,8 +7,7 @@ namespace ResourceProduction {
         [SerializeField] private Resource.Resource priceResource;
         [SerializeField] private string textPrefix = "Goblin Hammer";
         [SerializeField] private Text buyText;
-
-        private AudioHandler audiohandler;
+        [SerializeField] private AudioHandler audiohandler;
         private Button BuyButton => GetComponent<Button>();
         private Image Image => GetComponent<Image>();
         private string IsPurchasedKey => $"{name}_PurchaseStatus";
@@ -36,9 +34,6 @@ namespace ResourceProduction {
         }
         
         private void Start() {
-            //get audioHandler
-            audiohandler = FindObjectOfType<AudioHandler>();
-            
             if (IsPurchased) {
                 ActivateAutoClicker();
             } else {

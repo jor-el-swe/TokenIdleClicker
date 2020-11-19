@@ -7,8 +7,7 @@ namespace ResourceProduction {
         [SerializeField] private Text buyText;
         [SerializeField] private Text levelText;
         [SerializeField] private Image[] images;
-
-        private AudioHandler audiohandler;
+        [SerializeField] private AudioHandler audiohandler;
         private string LevelKey => $"{data.name}_upgradeLevel";
         private int Level {
             get => PlayerPrefs.GetInt(LevelKey, 0);
@@ -16,9 +15,6 @@ namespace ResourceProduction {
         }
         
         private void Start() {
-            //get audioHandler
-            audiohandler = FindObjectOfType<AudioHandler>();
-            
             SetLevel();
             SetImage();
             switch (Level) {

@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7099123892909030370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7099123892909030371}
+  - component: {fileID: 7099123892909030373}
+  m_Layer: 0
+  m_Name: AudioPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7099123892909030371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099123892909030370}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7099123892909030373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099123892909030370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c51c1244d31935647989ee026f80a88c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 2
+  sounds:
+  - soundName: click
+    clip: {fileID: 8300000, guid: 256829d40e67d6f409ea527a33b3fff2, type: 3}
+    volume: 0.061
+    pitch: 2.54
+    loop: 0
+    outputMixerGroup: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28,
+      type: 2}
+    audioSource: {fileID: 0}
+  - soundName: newLevel
+    clip: {fileID: 8300000, guid: 66229c5d4c907154fa7bb72b3a7c2f22, type: 3}
+    volume: 0.566
+    pitch: 1
+    loop: 0
+    outputMixerGroup: {fileID: 0}
+    audioSource: {fileID: 0}
+  - soundName: newScreen
+    clip: {fileID: 8300000, guid: 83529706d62f422459b27c2767d7ac28, type: 3}
+    volume: 0.337
+    pitch: 1
+    loop: 0
+    outputMixerGroup: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28,
+      type: 2}
+    audioSource: {fileID: 0}
+  - soundName: nono
+    clip: {fileID: 8300000, guid: fd002107baf786b40a7701d387456e45, type: 3}
+    volume: 0.265
+    pitch: 1
+    loop: 0
+    outputMixerGroup: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28,
+      type: 2}
+    audioSource: {fileID: 0}
+  - soundName: buyStore
+    clip: {fileID: 8300000, guid: 093516d0fcdc67b4d8cf4c8138862b9b, type: 3}
+    volume: 0.635
+    pitch: 1.14
+    loop: 0
+    outputMixerGroup: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28,
+      type: 2}
+    audioSource: {fileID: 0}
+  - soundName: upgraded
+    clip: {fileID: 8300000, guid: c93297f6a7f0eac4d8af42cabeb53fa1, type: 3}
+    volume: 0.487
+    pitch: 1
+    loop: 0
+    outputMixerGroup: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28,
+      type: 2}
+    audioSource: {fileID: 0}
+  - soundName: mainTheme
+    clip: {fileID: 8300000, guid: 863c4f42a5aec0d48a833ea00340a2f5, type: 3}
+    volume: 0.45
+    pitch: 1
+    loop: 1
+    outputMixerGroup: {fileID: 5901537071083657185, guid: 127d8d6383ff6d24e8f3d058c575bf28,
+      type: 2}
+    audioSource: {fileID: 0}
+  music: {fileID: 5901537071083657185, guid: 127d8d6383ff6d24e8f3d058c575bf28, type: 2}
+  sfx: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28, type: 2}
+  muteSoundsText: {fileID: 0}
+  muteMusicText: {fileID: 0}

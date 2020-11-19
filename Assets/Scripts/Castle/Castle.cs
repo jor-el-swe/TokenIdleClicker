@@ -1,13 +1,13 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Castle {
     public class Castle : MonoBehaviour {
         [SerializeField] private Data data;
+        [SerializeField] private AudioHandler audiohandler;
         public Data Data => data;
         private CastleUI UI => GetComponent<CastleUI>();
         
-        private AudioHandler audiohandler;
+
         private string OwnedKey => $"{data.name}_owned";
         public int NumberOwned {
             get => PlayerPrefs.GetInt(OwnedKey, 0);
@@ -25,12 +25,6 @@ namespace Castle {
             data.Resource.CurrentAmount -= castlePrice;
             NumberOwned++;
             UI.EnableRandomCastleIcon();
-        }
-
-        private void Start()
-        {
-            //get audioHandler
-            audiohandler = FindObjectOfType<AudioHandler>();
         }
     }
 }

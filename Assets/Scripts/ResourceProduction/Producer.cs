@@ -7,12 +7,12 @@ namespace ResourceProduction {
         public static event System.Action onUpdateTextEvent;
         private float timer;
         private bool isProducing;
-        private AudioHandler audiohandler;
         
         [SerializeField] private Data data;
         [SerializeField] private ProgressBar progressBar;
         [SerializeField] private Transform popupTextSpawnPoint;
         [SerializeField] private Castle.Data castleData;
+        [SerializeField] private AudioHandler audiohandler;
         public Data Data => data;
         private string OwnedKey => $"{data.name}_owned";
         public int NumberOwned {
@@ -35,8 +35,6 @@ namespace ResourceProduction {
             isProducing = true;
         }
         private void Start() {
-            //get audioHandler
-            audiohandler = FindObjectOfType<AudioHandler>();
             ProduceAtStart();
         }
         private static void UpdateTextEvent() {
