@@ -6,6 +6,7 @@ namespace ResourceProduction {
     public class ProducerUI : MonoBehaviour {
 
         [SerializeField] private Text buyText;
+        [SerializeField] private Text buyTextNumber;
         [SerializeField] private Text productionTimeText;
         [SerializeField] private Text numberOwnedText;
         [SerializeField] private Image shopIcon;
@@ -51,7 +52,8 @@ namespace ResourceProduction {
         }
         private void UpdateBuyText() {
             (ulong cost, int amount) = data.GetActualBulkPrice(producer.NumberOwned);
-            buyText.text = $"Buy {amount}:\n {SuffixHelper.GetString(cost, false)} Tokens ";
+            buyTextNumber.text = $"{amount}";
+            buyText.text = $"\n {SuffixHelper.GetString(cost, false)} Tokens ";
             if (buyButtonAnim != null)
                 UpdateBuyAnim(cost);
         }
