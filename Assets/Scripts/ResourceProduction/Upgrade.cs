@@ -85,7 +85,7 @@ namespace ResourceProduction {
         }
         
         private void UpdateButtonText(ulong currentPrice) {
-            buyText.text = $"Upgrade:\n{SuffixHelper.GetString(currentPrice, false)}";
+            buyText.text = $"Upgrade:\n{SuffixHelper.GetString(currentPrice)}";
             levelText.text = $"Rank: {Level}";
         }
     }

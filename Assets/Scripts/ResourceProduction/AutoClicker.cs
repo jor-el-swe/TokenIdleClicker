@@ -42,7 +42,7 @@ namespace ResourceProduction {
             if (IsPurchased) {
                 ActivateAutoClicker();
             } else {
-                buyText.text = $"{data.name}\n{textPrefix}\n{SuffixHelper.GetString(data.AutoClickerPrice, false)}";
+                buyText.text = $"{data.name}\n{textPrefix}\n{SuffixHelper.GetString(data.AutoClickerPrice)}";
             }
         }
 

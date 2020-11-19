@@ -51,7 +51,7 @@ namespace ResourceProduction {
         }
         private void UpdateBuyText() {
             (ulong cost, int amount) = data.GetActualBulkPrice(producer.NumberOwned);
-            buyText.text = $"Buy {amount}:\n {SuffixHelper.GetString(cost, false)} Tokens ";
+            buyText.text = $"Buy {amount}:\n {SuffixHelper.GetString(cost)} Tokens ";
             if (buyButtonAnim != null)
                 UpdateBuyAnim(cost);
         }
