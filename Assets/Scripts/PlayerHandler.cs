@@ -77,7 +77,8 @@ public class PlayerHandler : MonoBehaviour {
         audiohandler.Play("newLevel");
         audiohandler.StopMusic();
         yield return new WaitForSeconds(5);
-        audiohandler.PlayMusic();
+        if(!AudioHandler.MusicMuted)
+            audiohandler.PlayMusic();
         
         //2. load players current level in local variable 
         PlayerLevel = PlayerPrefs.GetInt(PlayerLevelKey, 1);

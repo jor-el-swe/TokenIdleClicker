@@ -16,6 +16,8 @@ public class AudioHandler: MonoBehaviour
     public Text muteSoundsText;
     public Text muteMusicText;
 
+    public static bool MusicMuted => musicMuted;
+
     private static bool musicMuted;
 
     
@@ -108,7 +110,6 @@ public class AudioHandler: MonoBehaviour
             audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
             yield return null;
         }
-        yield break;
     }
     private void Awake()
     {
@@ -127,11 +128,17 @@ public class AudioHandler: MonoBehaviour
     private void Start()
     {
         
-        Debug.Log("playing first song");
         Play("mainTheme");
         
         muteSoundsText.text = "Mute All Sounds";
-        muteMusicText.text = "Mute Music";
+        if (MusicMuted)
+        {
+            muteMusicText.text = "Unmute Music";
+        }
+        else
+        {
+            muteMusicText.text = "Mute Music";
+        }
         AudioListener.pause = false;
     }
 }
