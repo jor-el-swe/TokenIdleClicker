@@ -57,7 +57,6 @@ namespace Castle {
                     continue;
                 castleIcons[savedNumber].enabled = true;
                 usedNumbers.Add(savedNumber);
-                Debug.Log($"Activating {savedNumber}");
             }
         }
         

@@ -218,9 +218,9 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   - soundName: mainTheme
     clip: {fileID: 8300000, guid: 863c4f42a5aec0d48a833ea00340a2f5, type: 3}
-    volume: 0.307
+    volume: 0.45
     pitch: 1
-    loop: 0
+    loop: 1
     outputMixerGroup: {fileID: 5901537071083657185, guid: 127d8d6383ff6d24e8f3d058c575bf28,
       type: 2}
     audioSource: {fileID: 0}
@@ -1453,7 +1453,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303189114}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -7636,8 +7636,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -872, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 777, y: -514.4}
+  m_SizeDelta: {x: 19.267868, y: 20.404602}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1234261696
 MonoBehaviour:
@@ -7714,7 +7714,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1234261694}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
