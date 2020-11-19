@@ -7,6 +7,8 @@ namespace ResourceProduction {
         public static event System.Action onUpdateTextEvent;
         private float timer;
         private bool isProducing;
+        
+        private AudioHandler audiohandler;
 
         [SerializeField] private Data data;
         [SerializeField] private GameObject produceButton;
@@ -22,7 +24,11 @@ namespace ResourceProduction {
         public void Buy() {
             (ulong cost, int buyAmount) = data.GetActualBulkPrice(NumberOwned);
             if (data.Resource.CurrentAmount < cost)
+            { 
+                audiohandler.Play("nono");
                 return;
+            }
+            audiohandler.Play("click");
             data.Resource.CurrentAmount -= cost;
             NumberOwned += buyAmount;
             UpdateTextEvent();
@@ -31,6 +37,8 @@ namespace ResourceProduction {
             isProducing = true;
         }
         private void Start() {
+            //get audioHandler
+            audiohandler = FindObjectOfType<AudioHandler>();
             ProduceAtStart();
         }
         private static void UpdateTextEvent() {

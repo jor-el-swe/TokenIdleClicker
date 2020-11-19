@@ -26,11 +26,16 @@ public class PlayerHandler : MonoBehaviour {
     public void Ascend()
     {
         //don't run again if we are already waiting for an answer
-        if (ascending) return;
+        if (ascending)
+        {
+            audiohandler.Play("nono");
+            return;
+        }
         
         //0. check if user has enuff resources to ascend
         if (!HasCastlesRequired())
         {
+            audiohandler.Play("nono");
             return;
         }
         
@@ -56,6 +61,7 @@ public class PlayerHandler : MonoBehaviour {
         }
         if (clickedNo)
         {
+            audiohandler.Play("nono");
             upgradeText.text = "Ascend";
             yesButton.gameObject.SetActive(false);
             noButton.gameObject.SetActive(false);

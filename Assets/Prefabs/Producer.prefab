@@ -529,7 +529,6 @@ GameObject:
   - component: {fileID: 1686010835936530838}
   - component: {fileID: 1748638223466794344}
   - component: {fileID: 8117324164104611205}
-  - component: {fileID: 6226505428078246709}
   m_Layer: 5
   m_Name: Buy Button
   m_TagString: Untagged
@@ -651,9 +650,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6226505428078246709}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -662,104 +661,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
---- !u!82 &6226505428078246709
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2280536648600820259}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28,
-    type: 2}
-  m_audioClip: {fileID: 8300000, guid: 256829d40e67d6f409ea527a33b3fff2, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.061
-  m_Pitch: 2.54
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 44
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.33333334
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+        m_CallState: 0
 --- !u!1 &2908689504926607879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,8 +913,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupTextPrefab: {fileID: 7931557911440886001, guid: d8f8c958871001f4aa37567b57f1d4a9,
     type: 3}
-  nonAccessColor: {r: 0.7058824, g: 0.3372549, b: 0.3731498, a: 0}
-  accessColor: {r: 0.3372549, g: 0.7058824, b: 0.3529412, a: 0}
   data: {fileID: 0}
   produceButton: {fileID: 6699695450754324914}
   progressBar: {fileID: 3901051697735221845}
