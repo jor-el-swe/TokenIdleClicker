@@ -24,7 +24,6 @@ namespace ResourceProduction {
             
             SetLevel();
             SetImage();
-            SetBuyButton();
             switch (Level) {
                 case 0:
                     UpdateButtonText(data.FirstUpgradePrice);
@@ -59,7 +58,6 @@ namespace ResourceProduction {
                     buyText.text = "";
                     levelText.text = "Rank: Max";
                     SetImage();
-                    SetBuyButton();
                     break;
                 case 1 when currentTokens < secondUpgradePrice:
                     audiohandler.Play("nono");
@@ -69,28 +67,12 @@ namespace ResourceProduction {
                     return;
             }
         }
-
-        private void FixedUpdate() {
-            //TODO verify with Ruben
-            var currentTokens = data.Resource.CurrentAmount;
-            switch (Level) {
-                case 0:
-           //         BuyButton.interactable = currentTokens >= data.FirstUpgradePrice;
-                    break;
-                case 1:
-             //       BuyButton.interactable = currentTokens >= data.SecondUpgradePrice;
-                    break;
-                case 2:
-            //        BuyButton.interactable = false;
-                    break;
-            }
-        }
+        
         private void BuyNextUpgrade(ulong upgradePrice) {
             audiohandler.Play("upgraded");
             data.Resource.CurrentAmount -= upgradePrice;
             Level++;
-            //joels edit
-            //TODO verify with Ruben
+
             if (Level >= 2) Level = 2;
             SetLevel();
         }
@@ -99,11 +81,6 @@ namespace ResourceProduction {
             for (var i = 0; i < images.Length; i++) {
                 images[i].enabled = i == Level;
             }
-        }
-        
-        private void SetBuyButton() {
-            //TODO verify with Ruben
-        //    BuyButton.enabled = Level != 2;
         }
         
         private void SetLevel() {
