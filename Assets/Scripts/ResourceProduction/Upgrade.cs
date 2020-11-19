@@ -51,6 +51,9 @@ namespace ResourceProduction {
                     UpdateButtonText(secondUpgradePrice);
                     SetImage();
                     break;
+                case 0 when currentTokens < firstUpgradePrice:
+                    audiohandler.Play("nono");
+                    break;
                 case 1 when currentTokens >= secondUpgradePrice:
                     BuyNextUpgrade(secondUpgradePrice);
                     buyText.text = "";
@@ -58,22 +61,27 @@ namespace ResourceProduction {
                     SetImage();
                     SetBuyButton();
                     break;
+                case 1 when currentTokens < secondUpgradePrice:
+                    audiohandler.Play("nono");
+                    break;
                 case 2:
+                    audiohandler.Play("nono");
                     return;
             }
         }
 
         private void FixedUpdate() {
+            //TODO verify with Ruben
             var currentTokens = data.Resource.CurrentAmount;
             switch (Level) {
                 case 0:
-                    BuyButton.interactable = currentTokens >= data.FirstUpgradePrice;
+           //         BuyButton.interactable = currentTokens >= data.FirstUpgradePrice;
                     break;
                 case 1:
-                    BuyButton.interactable = currentTokens >= data.SecondUpgradePrice;
+             //       BuyButton.interactable = currentTokens >= data.SecondUpgradePrice;
                     break;
                 case 2:
-                    BuyButton.interactable = false;
+            //        BuyButton.interactable = false;
                     break;
             }
         }
@@ -81,6 +89,9 @@ namespace ResourceProduction {
             audiohandler.Play("upgraded");
             data.Resource.CurrentAmount -= upgradePrice;
             Level++;
+            //joels edit
+            //TODO verify with Ruben
+            if (Level >= 2) Level = 2;
             SetLevel();
         }
         
@@ -91,7 +102,8 @@ namespace ResourceProduction {
         }
         
         private void SetBuyButton() {
-            BuyButton.enabled = Level != 2;
+            //TODO verify with Ruben
+        //    BuyButton.enabled = Level != 2;
         }
         
         private void SetLevel() {
