@@ -76,7 +76,6 @@ namespace ResourceProduction {
                                  (ulong) (1 + castleData.AscensionBonus * PlayerHandler.PlayerLevel);
             var text = instance.GetComponent<Text>();
             text.text = SuffixHelper.GetString(producedAmount, false);
-            text.color = data.Resource.resourceColor;
         }
     }
 }
