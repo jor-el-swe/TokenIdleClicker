@@ -6,7 +6,7 @@ namespace ResourceProduction {
     public class AutoClicker : MonoBehaviour {
         [SerializeField] private Data data;
         [SerializeField] private Resource.Resource priceResource;
-        [SerializeField] private string textPrefix = "Auto Clicker";
+        [SerializeField] private string textPrefix = "Goblin Hammer";
         [SerializeField] private Text buyText;
 
         private AudioHandler audiohandler;
