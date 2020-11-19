@@ -54,8 +54,11 @@
     private static string ModToDecimalString(ulong num, ulong power, ref bool dispDecimal)
     {
         var mod = num % power;
-        if(mod != 0)
-            return mod.ToString();
+        if (mod != 0)
+        {
+            if((mod*100)/power!=0)
+                return mod.ToString(); 
+        }
         dispDecimal = false;
         return "";
     }
