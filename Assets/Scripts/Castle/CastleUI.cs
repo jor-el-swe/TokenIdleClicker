@@ -22,7 +22,6 @@ namespace Castle {
             while (usedNumbers.Contains(randomNumber)) {
                 randomNumber = Random.Range(0, castleIcons.Length);
                 if (usedNumbers.Count >= maxCapacity) {
-                    Debug.Log("max reached: " + usedNumbers.Count + " : " + maxCapacity);
                     break;
                 }
             }
