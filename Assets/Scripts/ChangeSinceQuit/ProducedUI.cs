@@ -18,7 +18,7 @@ namespace ChangeSinceQuit {
                 return;
             }
             textUI.text = $"Tokens produced while gone: \n";
-            textUI.text += SuffixHelper.GetString(Data.ProducedAmount);
+            textUI.text += SuffixHelper.GetString(Data.ProducedAmount, false);
             textUI.enabled = true;
             Destroy(this.gameObject, destroyTime);
         }

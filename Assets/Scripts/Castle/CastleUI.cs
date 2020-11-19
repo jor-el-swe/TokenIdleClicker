@@ -66,7 +66,7 @@ namespace Castle {
         }
         
         private void UpdateBuyText() {
-            buyText.text = $"Buy Castle\n {SuffixHelper.GetString(data.GetActualPrice(Castle.NumberOwned))} Tokens";
+            buyText.text = $"Buy Castle\n {SuffixHelper.GetString(data.GetActualPrice(Castle.NumberOwned), false)} Tokens";
         }
     }
 }
