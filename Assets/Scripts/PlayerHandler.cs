@@ -35,22 +35,21 @@ public class PlayerHandler : MonoBehaviour {
         }
         
         ascending = true;
-        
         upgradeText.text = "ascending...";
-        //1. ask user if they really want to zap all data and start over, to level up
-        //1.5 implement yes/no logic
-        //Wait for the button to be pressed
         StartCoroutine(waitYesNoAnswer());
     }
 
     IEnumerator waitYesNoAnswer()
     {
+        //1. ask user if they really want to zap all data and start over, to level up
         clickedYes = false;
         clickedNo = false;
         yesButton.gameObject.SetActive(true);
         noButton.gameObject.SetActive(true);
         upgradeText.text = "really?!";
- 
+        
+        //1.5 implement yes/no logic
+        //Wait for the button to be pressed
         while (clickedYes == false && clickedNo == false)
         {
             yield return 0;

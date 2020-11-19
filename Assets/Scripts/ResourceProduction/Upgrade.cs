@@ -10,6 +10,7 @@ namespace ResourceProduction {
         [SerializeField] private Text levelText;
         [SerializeField] private Image[] images;
 
+        private AudioHandler audiohandler;
         private Button BuyButton => GetComponent<Button>();
         private string LevelKey => $"{data.name}_upgradeLevel";
         private int Level {
@@ -18,6 +19,9 @@ namespace ResourceProduction {
         }
         
         private void Start() {
+            //get audioHandler
+            audiohandler = FindObjectOfType<AudioHandler>();
+            
             SetLevel();
             SetImage();
             SetBuyButton();
@@ -74,6 +78,7 @@ namespace ResourceProduction {
             }
         }
         private void BuyNextUpgrade(ulong upgradePrice) {
+            audiohandler.Play("upgraded");
             data.Resource.CurrentAmount -= upgradePrice;
             Level++;
             SetLevel();
