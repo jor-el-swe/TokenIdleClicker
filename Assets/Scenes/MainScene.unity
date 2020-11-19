@@ -227,7 +227,7 @@ MonoBehaviour:
   music: {fileID: 5901537071083657185, guid: 127d8d6383ff6d24e8f3d058c575bf28, type: 2}
   sfx: {fileID: -8504178294854767439, guid: 127d8d6383ff6d24e8f3d058c575bf28, type: 2}
   muteSoundsText: {fileID: 1106668161}
-  muteMusicText: {fileID: 1106668161}
+  muteMusicText: {fileID: 1064263951}
 --- !u!114 &32116153 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2274600416873982412, guid: f7114cbe9a4d40a4a9e3018e8a0bd27d,
@@ -417,7 +417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &259255684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2431,7 +2431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1327600322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4055,6 +4055,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 303189118}
     m_Modifications:
+    - target: {fileID: 1510475330879876905, guid: 22977d8452b3e73448190b1a3b64f66c,
+        type: 3}
+      propertyPath: m_Name
+      value: MuteAllText
+      objectReference: {fileID: 0}
     - target: {fileID: 1510475332636489671, guid: 22977d8452b3e73448190b1a3b64f66c,
         type: 3}
       propertyPath: muteMusicText
