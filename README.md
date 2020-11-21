@@ -1,4 +1,6 @@
 # TokenIdleClicker
+TOKEN
+
 Team 10 game
  
 
