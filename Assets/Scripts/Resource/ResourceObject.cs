@@ -2,7 +2,7 @@
 
 namespace Resource {
      [CreateAssetMenu (fileName = "Resource", menuName = "ScriptableObjects/Resource")]
-     public class Resource : ScriptableObject {
+     public class ResourceObject : ScriptableObject {
           public ulong CurrentAmount {
                get {
                     var currentValueString = PlayerPrefs.GetString (this.name + "_string", "0");

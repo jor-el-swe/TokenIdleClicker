@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHandler : MonoBehaviour {
     [SerializeField] private ResourceProduction.Data startingStore;
-    [SerializeField] private Resource.Resource resource; 
+    [SerializeField] private Resource.ResourceObject resource; 
     [SerializeField] private Text upgradeText;
     [SerializeField] private Text playerLevelText;
     [SerializeField] private Button yesButton;

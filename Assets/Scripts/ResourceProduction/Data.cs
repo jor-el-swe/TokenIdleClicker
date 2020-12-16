@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 namespace ResourceProduction {
     [CreateAssetMenu(fileName = "ProductionData", menuName = "ScriptableObjects/ProductionData")]
     public class Data : ScriptableObject {
-        [SerializeField] private Resource.Resource resource;
+        [SerializeField] private Resource.ResourceObject resource;
         [SerializeField] private float productionTime;
         [SerializeField] private float productionTimeMultiplier;
         [SerializeField] private float minimumProductionTime;
@@ -18,7 +18,7 @@ namespace ResourceProduction {
         [SerializeField] private ulong autoClickerPrice;
 
         public int Level { get; set; }
-        public Resource.Resource Resource => resource;
+        public Resource.ResourceObject Resource => resource;
         private string AutoClickerKey => $"{name}_autoClicker";
         public ulong FirstUpgradePrice => firstUpgradePrice;
         public ulong SecondUpgradePrice => secondUpgradePrice;

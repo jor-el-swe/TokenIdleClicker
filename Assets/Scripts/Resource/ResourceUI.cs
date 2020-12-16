@@ -6,7 +6,7 @@ namespace Resource {
     public class ResourceUI : MonoBehaviour {
         [SerializeField] private Text resourceText;
         [SerializeField] private Text resourceSuffixText;
-        [SerializeField] private Resource resource;
+        [SerializeField] private ResourceObject resource;
         
         private void Update()
         {

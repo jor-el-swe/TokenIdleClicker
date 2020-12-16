@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace ResourceProduction {
     public class AutoClicker : MonoBehaviour {
         [SerializeField] private Data data;
-        [SerializeField] private Resource.Resource priceResource;
+        [SerializeField] private Resource.ResourceObject priceResource;
         [SerializeField] private string textPrefix = "Goblin Hammer";
         [SerializeField] private Text buyText;
         [SerializeField] private AudioHandler audiohandler;

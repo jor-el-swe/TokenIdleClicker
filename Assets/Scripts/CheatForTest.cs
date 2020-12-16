@@ -2,7 +2,7 @@
 
 public class CheatForTest : MonoBehaviour
 {
-    public Resource.Resource resource;
+    public Resource.ResourceObject resource;
 
     public void Cheat()
     {
